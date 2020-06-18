@@ -64,7 +64,7 @@ header {
     width: inherit;
     font-family: 'Oswald', sans-serif;
     font-size: 14pt;
-    padding: 16px calc(100vh - 632px);
+    padding: 16px calc(100vh - 600px);
     position: fixed;
     opacity: 1;
     background: none;
@@ -100,7 +100,7 @@ header.content a.active {
 
 section {
     border-top: 1px solid rgba(0, 0, 0, 0.03125);
-    padding: 64px calc(100vh - 632px) 32px;
+    padding: 64px calc(100vh - 600px) 32px;
     background: var(--background-color);
 }
 
