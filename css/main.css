@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+:root {
+    --text-color: rgba(68, 68, 68, 1);
+    --text-color-dark: rgba(220, 220, 220, 1);
+    --text-color-hover: rgba(71, 48, 158, 1);
+    --text-color-hover-dark: rgb(141, 128, 194);
+    --background-color: rgba(239, 239, 239, 0.95);
+    --body-color: rgba(105, 30, 180, 1);
+    --body-color-dark: rgb(171, 132, 212);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14pt;
+    background: var(--background-color);
+    margin: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-color-hover);
+    text-decoration: underline;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    opacity: 1;
+    filter: blur(2px);
+    transform: scale(1.1);
+}
+
+#main {
+    /*max-width: 1200px;*/
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    /*box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.85);*/
+    /*padding: 0 24px;*/
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    max-width: inherit;
+    width: inherit;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14pt;
+    padding: 16px calc(100vh - 632px);
+    position: fixed;
+    opacity: 1;
+    background: none;
+    z-index: 2;
+    color: var(--text-color-dark);
+}
+
+header.content {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+header a {
+    transition: all 100ms;
+    margin-right: 24px;
+}
+
+header a:hover {
+    color: var(--text-color-hover-dark);
+}
+
+header a.active {
+    color: var(--body-color-dark);
+}
+
+header.content a:hover {
+    color: var(--text-color-hover);
+}
+
+header.content a.active {
+    color: var(--body-color);
+}
+
+section {
+    border-top: 1px solid rgba(0, 0, 0, 0.03125);
+    padding: 64px calc(100vh - 632px) 32px;
+    background: var(--background-color);
+}
+
+section h1 {
+    margin-bottom: 72px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#dev-info {
+    background: none;
+    color: var(--text-color-dark);
+}
+
+#dev-info a {
+    color: var(--text-color-dark);
+}
+
+#dev-info #dev-card {
+    display: flex;
+    padding-bottom: 32px;
+}
+
+#dev-info #dev-card #img {
+    width: 200px;
+}
+
+#dev-info #dev-card #img img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.85);
+}
+
+#dev-info #dev-card #info {
+    flex-grow: 1;
+    margin-left: 24px;
+}
+
+#dev-info #dev-card #info p {
+    margin-bottom: 0;
+}
+
+#dev-info #dev-card #info #basic-info {
+    margin-bottom: 16px;
+}
+
+#dev-info #dev-card #info #basic-info #name {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+#dev-info #dev-card #info #links a {
+    font-size: 16pt;
+    color: var(--text-color-dark);
+    margin-right: 4px;
+}
+
+#dev-info #dev-card #info #links a:hover {
+    color: var(--text-color-hover-dark);
+}
+
+#about {
+
+}
+
+#about p {
+    margin-bottom: 32px;
+}
+
+#about #download-resume-btn {
+    padding: 12px 20px;
+    background: #47309e;
+    transition: all 100ms ease;
+    border-radius: 50px;
+    color: #e7e7e7;
+}
+
+#about #download-resume-btn:hover {
+    background: #691EB4;
+    text-decoration: none;
+}
+
+#resume {
+
+}
+
+#resume h2 {
+    font-size: 14pt;
+    padding: 16px 0;
+}
+
+#resume ul {
+
+}
+
+#resume ul li {
+    padding-bottom: 8px;
+}
+
+#resume ul li p {
+    margin: 0;
+}
+
+#resume ul li p.school-name {
+    font-weight: bold;
+}
+
+#resume ul li .school-details {
+    font-size: 12pt;
+}
+
+#resume ul li p.company-name {
+    font-weight: bold;
+}
+
+#resume ul li .company-details {
+    font-size: 12pt;
+}
+
+#resume #skills {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-row-gap: 48px;
+    grid-column-gap: 64px;
+    margin-bottom: 48px;
+}
+
+#resume #skills .skill {
+    font-size: 11pt;
+}
+
+#resume #skills .skill p {
+    margin-bottom: 4px;
+}
+
+#resume #skills .skill p .percent {
+    float: right;
+}
+
+#resume #skills .skill .progress {
+    height: 6px;
+    display: flex;
+    overflow: hidden;
+    font-size: 12pt;
+    line-height: 1rem;
+}
+
+#resume #skills .skill .progress .progress-bar {
+    background-color: #691EB4;
+    height: 1rem;
+    line-height: 1rem;
+    color: #FFFFFF;
+    transition: all 600ms ease;
+}
+
+#portfolio {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 16px;
+    overflow-x: hidden;
+}
+
+#portfolio a {
+    text-decoration: none;
+    transition: all 500ms;
+}
+
+#portfolio a:hover {
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.35);
+    background: #e7e7e7;
+}
+
+#portfolio .portfolio-item {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-column-gap: 16px;
+}
+
+#portfolio .portfolio-item .project-img {
+    max-width: 95vw;
+}
+
+#portfolio .portfolio-item .project-img img {
+    width: 100%;
+}
+
+#portfolio .portfolio-item .project-info {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    height: fit-content;
+    grid-row-gap: 16px;
+    overflow: auto;
+}
+
+#portfolio .portfolio-item .project-info p {
+    margin: 0;
+    max-width: 95vw;
+}
+
+#portfolio .portfolio-item .project-info .project-name {
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+#portfolio .portfolio-item .project-info .project-description {
+
+}
+
+#portfolio .portfolio-item .project-info .techs-div {
+    overflow: auto;
+}
+
+#portfolio .portfolio-item .project-info .techs {
+    display: grid;
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    width: fit-content;
+    grid-column-gap: 8px;
+    overflow-x: auto;
+    padding-right: 16px;
+}
+
+#portfolio .portfolio-item .project-info .techs .stack {
+    width: min-content;
+    border-radius: 4px;
+    border: #777777 solid 1px;
+    padding: 4px 8px;
+    transition: all 100ms ease;
+}
+
+#portfolio .portfolio-item .project-info .techs .stack:hover {
+    background: #6d4d99;
+    color: #eeeeee;
+}
+
+#contact {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color-dark);
+    padding-top: 92px;
+}
+
+#contact a {
+    color: var(--text-color-dark);
+}
+
+#contact-content {
+    position: relative;
+    z-index: 1;
+}
+
+#contact input[type="text"],
+#contact input[type="password"],
+#contact textarea {
+    border: 1px solid #4b3b61;
+    outline: none;
+    padding: 4px;
+    font-size: 12pt;
+    background-color: #f6f6f6;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="password"]:hover,
+#contact textarea:hover {
+    border: 1px solid #6d4d99;
+    outline: none;
+}
+
+#contact input[type="text"]:focus,
+#contact input[type="password"]:focus,
+#contact textarea:focus {
+    border: 1px solid #4a3480;
+    outline: none;
+}
+
+#contact #contact-div {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+}
+
+#contact #contact-div ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#contact #contact-div #social-links {
+
+}
+
+#contact #contact-div #social-links #links-1 {
+    margin-bottom: 16px;
+}
+
+#contact #contact-div #email-form {
+
+}
+
+#contact #contact-div #email-form #form-send-btn {
+    text-align: center;
+    width: 100%;
+    border: none;
+    padding: 12px 20px;
+    background: var(--body-color-dark);
+    transition: all 100ms ease;
+    border-radius: 50px;
+    color: #e7e7e7;
+}
+
+#contact #contact-div #email-form #form-send-btn:hover {
+    background: var(--text-color-hover-dark);
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    font-size: 11pt;
+    padding: 8px 0;
+    color: var(--text-color-dark);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 500px) {
+    #dev-info #dev-card #info #info-social {
+        margin-left: calc(-50vw + 64px);
+    }
+
+    #dev-info #dev-card #info #links a {
+        font-size: 20pt;
+    }
+
+    #resume #skills {
+        grid-template-columns: auto;
+    }
+
+    #portfolio .portfolio-item {
+        grid-template-rows: auto auto;
+        grid-auto-flow: column;
+        grid-template-columns: auto;
+        grid-row-gap: 16px;
+    }
+
+    #contact #contact-div {
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+        grid-template-rows: auto auto;
+        grid-row-gap: 32px;
+    }
+}
