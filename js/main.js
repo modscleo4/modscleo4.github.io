@@ -40,15 +40,15 @@ window.addEventListener('DOMContentLoaded', e => {
         {name: 'cs', percent: 75,},
         {name: 'php', percent: 80,},
         {name: 'java', percent: 75,},
-        {name: 'sql', percent: 75,},
-        {name: 'html', percent: 70,},
+        {name: 'sql', percent: 65,},
+        {name: 'html', percent: 65,},
         {name: 'css', percent: 60,},
         {name: 'js', percent: 85,},
         {name: 'git', percent: 75,},
         {name: 'linux', percent: 85,},
     ].forEach(skill => {
         const div = document.querySelector(`#skills #skill-${skill.name}`);
-        div.querySelector('.percent').innerHTML = `${skill.percent}%`;
+        div.querySelector('.percent').innerHTML = (skill.percent <= 33) ? 'Básico' : (skill.percent <= 66) ? 'Intermediário' : 'Avançado';
         div.querySelector('.progress-bar').style.width = `${skill.percent}%`;
         div.querySelector('.progress-bar').setAttribute('aria-valuenow', skill.percent);
     });

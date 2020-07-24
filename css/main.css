@@ -9,6 +9,14 @@
     --background-color: rgba(239, 239, 239, 0.95);
     --body-color: rgba(105, 30, 180, 1);
     --body-color-dark: rgb(171, 132, 212);
+    --input-background-color: rgb(246, 246, 246);
+    --input-border-color: rgb(75, 59, 97);
+    --input-border-color-hover: rgb(109, 77, 153);
+    --input-border-color-focus: rgb(74, 52, 128);
+    --btn-text-color: rgb(231, 231, 231);
+    --btn-background-color: rgb(71, 48, 158);
+    --btn-background-color-hover: rgb(105, 30, 180);
+    --progressbar-color: rgb(105, 30, 180);
 }
 
 * {
@@ -49,12 +57,9 @@ a:hover {
 }
 
 #main {
-    /*max-width: 1200px;*/
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    /*box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.85);*/
-    /*padding: 0 24px;*/
     position: relative;
     z-index: 1;
 }
@@ -171,14 +176,14 @@ section h1 {
 
 #about #download-resume-btn {
     padding: 12px 20px;
-    background: #47309e;
+    background: var(--btn-background-color);
     transition: all 100ms ease;
     border-radius: 50px;
-    color: #e7e7e7;
+    color: var(--btn-text-color);
 }
 
 #about #download-resume-btn:hover {
-    background: #691EB4;
+    background: var(--btn-background-color-hover);
     text-decoration: none;
 }
 
@@ -249,7 +254,7 @@ section h1 {
 }
 
 #resume #skills .skill .progress .progress-bar {
-    background-color: #691EB4;
+    background-color: var(--progressbar-color);
     height: 1rem;
     line-height: 1rem;
     color: #FFFFFF;
@@ -272,7 +277,7 @@ section h1 {
     text-decoration: none;
     color: var(--text-color);
     box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.35);
-    background: #e7e7e7;
+    background: var(--btn-text-color);
 }
 
 #portfolio .portfolio-item {
@@ -334,7 +339,7 @@ section h1 {
 }
 
 #portfolio .portfolio-item .project-info .techs .stack:hover {
-    background: #6d4d99;
+    background: var(--btn-background-color);
     color: #eeeeee;
 }
 
@@ -356,24 +361,25 @@ section h1 {
 #contact input[type="text"],
 #contact input[type="password"],
 #contact textarea {
-    border: 1px solid #4b3b61;
+    border: 1px solid;
+    border-color: var(--input-border-color);
     outline: none;
     padding: 4px;
     font-size: 12pt;
-    background-color: #f6f6f6;
+    background-color: var(--input-background-color);
 }
 
 #contact input[type="text"]:hover,
 #contact input[type="password"]:hover,
 #contact textarea:hover {
-    border: 1px solid #6d4d99;
+    border-color: var(--input-border-color-hover);
     outline: none;
 }
 
 #contact input[type="text"]:focus,
 #contact input[type="password"]:focus,
 #contact textarea:focus {
-    border: 1px solid #4a3480;
+    border-color: var(--input-border-color-focus);
     outline: none;
 }
 
@@ -410,7 +416,7 @@ section h1 {
     background: var(--body-color-dark);
     transition: all 100ms ease;
     border-radius: 50px;
-    color: #e7e7e7;
+    color: var(--btn-text-color);
 }
 
 #contact #contact-div #email-form #form-send-btn:hover {
