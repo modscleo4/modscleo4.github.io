@@ -6,6 +6,10 @@
     --text-color-dark: rgba(220, 220, 220, 1);
     --text-color-hover: rgb(68, 48, 158);
     --text-color-hover-dark: rgb(141, 128, 194);
+    --link-color: rgb(81, 81, 81);
+    --link-color-dark: rgb(236, 236, 236);
+    --link-color-hover: rgb(75, 54, 174);
+    --link-color-hover-dark: rgb(153, 138, 208);
     --background-color: rgba(239, 239, 239, 0.95);
     --body-color: rgb(83, 30, 180);
     --body-color-dark: rgb(147, 132, 212);
@@ -31,16 +35,29 @@ body {
     margin: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    color: var(--text-color);
 }
 
 a {
-    color: inherit;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--text-color-hover);
+    color: var(--link-color-hover);
     text-decoration: underline;
+}
+
+.dark-bg {
+    color: var(--text-color-dark);
+}
+
+.dark-bg a {
+    color: var(--link-color-dark);
+}
+
+.dark-bg a:hover {
+    color: var(--link-color-hover-dark) !important;
 }
 
 #particles-js {
@@ -56,7 +73,7 @@ a:hover {
     transform: scale(1.1);
 }
 
-#main {
+#app {
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -72,14 +89,15 @@ header {
     padding: 16px calc(100vh - 600px);
     position: fixed;
     opacity: 1;
-    background: none;
+    background: var(--background-color);
     z-index: 2;
-    color: var(--text-color-dark);
+    color: var(--text-color);
+    transition: all 100ms;
 }
 
-header.content {
-    background: var(--background-color);
-    color: var(--text-color);
+header.dark-bg {
+    background: none;
+    color: var(--text-color-dark);
 }
 
 header a {
@@ -116,11 +134,10 @@ section h1 {
 
 #dev-info {
     background: none;
-    color: var(--text-color-dark);
 }
 
 #dev-info a {
-    color: var(--text-color-dark);
+
 }
 
 #dev-info #dev-card {
@@ -151,19 +168,18 @@ section h1 {
     margin-bottom: 16px;
 }
 
-#dev-info #dev-card #info #basic-info #name {
+#dev-info #dev-card #info #basic-info #dev-name {
     font-size: 18pt;
     font-weight: bold;
 }
 
 #dev-info #dev-card #info #links a {
     font-size: 16pt;
-    color: var(--text-color-dark);
     margin-right: 4px;
 }
 
-#dev-info #dev-card #info #links a:hover {
-    color: var(--text-color-hover-dark);
+#dev-info #dev-card #info #info-social #dev-links a {
+    padding-right: 4px;
 }
 
 #about {
@@ -222,6 +238,11 @@ section h1 {
 
 #resume ul li .company-details {
     font-size: 12pt;
+}
+
+#resume ul li .company-details .divider {
+    display: block;
+    padding: 4px 0;
 }
 
 #resume #skills {
@@ -357,12 +378,12 @@ section h1 {
 
 #contact {
     background: rgba(255, 255, 255, 0.05);
-    color: var(--text-color-dark);
     padding-top: 92px;
+    padding-bottom: 16px;
 }
 
 #contact a {
-    color: var(--text-color-dark);
+
 }
 
 #contact-content {
@@ -379,6 +400,7 @@ section h1 {
     padding: 4px;
     font-size: 12pt;
     background-color: var(--input-background-color);
+    transition: all 100ms;
 }
 
 #contact input[type="text"]:hover,
@@ -444,7 +466,6 @@ footer {
     text-align: center;
     font-size: 11pt;
     padding: 8px 0;
-    color: var(--text-color-dark);
     background: rgba(255, 255, 255, 0.05);
 }
 
@@ -452,8 +473,35 @@ footer p {
     margin: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 920px) {
+    #contact #contact-div {
+        grid-template-columns: auto auto;
+        grid-auto-flow: column;
+        grid-template-rows: auto;
+        grid-column-gap: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    #contact #contact-div {
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+        grid-template-rows: auto auto;
+        grid-row-gap: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 16px 24px;
+    }
+
+    section {
+        padding: 64px 24px 32px;
+    }
+
     #dev-info #dev-card #info #info-social {
+        padding-top: 16px;
         margin-left: calc(-50vw + 64px);
     }
 
@@ -472,10 +520,7 @@ footer p {
         grid-row-gap: 16px;
     }
 
-    #contact #contact-div {
-        grid-template-columns: auto;
-        grid-auto-flow: column;
-        grid-template-rows: auto auto;
-        grid-row-gap: 32px;
+    #contact #contact-div #social-links #links-2 ul {
+        columns: 2;
     }
 }

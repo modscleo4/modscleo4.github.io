@@ -23,6 +23,8 @@ Vue.component('job', {
     <p class="company-name">{{ job.company_name }}</p>
     <div class="company-details">
         <p>{{ job.description }}</p>
+        <span class="divider"></span>
+        <p>{{ job.activities }}</p>
         <p>{{ job.start_year }} - {{ job.end_year }}</p>
     </div>
 </li>`,
@@ -72,12 +74,12 @@ window.addEventListener('scroll', e => {
             });
 
             if (document.querySelector(`header a[href="#${section}"]`)) {
-                document.querySelector('header').classList.add('content');
+                document.querySelector('header').classList.remove('dark-bg');
                 document.querySelector(`header a[href="#${section}"]`).classList.add('active');
             }
 
             if (['dev-info', 'contact'].includes(section)) {
-                document.querySelector('header').classList.remove('content');
+                document.querySelector('header').classList.add('dark-bg');
             }
         }
     });
@@ -92,7 +94,7 @@ window.addEventListener('DOMContentLoaded', e => {
                 title: 'Desenvolvedor full stack',
                 age: 18,
                 contact: {
-                    email: 'dhiego.cf.barbosa@unesp.br',
+                    email: 'modscleo4@outlook.com',
                     phone: '5514991513719',
                     formatted_phone: '+55 (14) 99151-3719',
                     github: 'modscleo4',
@@ -123,20 +125,48 @@ window.addEventListener('DOMContentLoaded', e => {
                         {
                             company_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
                             description: 'Estagiário',
+                            activities: 'Gerenciei redes Linux usando o protocolo LDAP, além de dar manutenção aos computadores.',
                             start_year: 2019,
                             end_year: 2020,
                         },
                     ]
                 },
-                skills: {
-                    languages: ['C', 'C++', 'C#', 'PHP', 'Java', 'HTML', 'CSS', 'JS', 'Python', 'SQL',],
-                    databases: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB',],
-                    os: ['Windows', 'Linux',],
-                    tools: ['Node.js', 'Git',],
-                    frameworks: ['React', 'Vue.js', 'Laravel',],
-                    techs: ['WebSocket',],
-                    dev: ['TDD', 'CI', 'CD', 'MVC', 'SPA'],
-                },
+                skills: [
+                    {
+                        description: 'Linguagens',
+                        list: ['C', 'C++', 'C#', 'PHP', 'Java', 'HTML', 'CSS', 'JS', 'Python', 'SQL',],
+                    },
+
+                    {
+                        description: 'Banco de Dados',
+                        list: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB',],
+                    },
+
+                    {
+                        description: 'Sistemas Operacionais',
+                        list: ['Windows', 'Linux',],
+                    },
+
+                    {
+                        description: 'Ferramentas',
+                        list: ['Git', 'GitHub',],
+                    },
+
+                    {
+                        description: 'Frameworks',
+                        list: ['React', 'Vue.js', 'Laravel',]
+                    },
+
+                    {
+                        description: 'Tecnologias',
+                        list: ['Node.js', 'WebSocket',],
+                    },
+
+                    {
+                        description: 'Desenvolvimento',
+                        list: ['TDD', 'CI', 'CD', 'MVC', 'SPA'],
+                    },
+                ],
                 portfolio: [
                     {
                         url: 'https://github.com/modscleo4/jsdb',

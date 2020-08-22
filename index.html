@@ -23,171 +23,133 @@
 <div id="particles-js"></div>
 
 <div id="app">
-    <div id="main">
-        <header>
-            <a href="#about">Sobre</a>
-            <a href="#resume">Currículo</a>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#contact">Contato</a>
-        </header>
+    <header class="dark-bg">
+        <a href="#about">Sobre</a>
+        <a href="#resume">Currículo</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contact">Contato</a>
+    </header>
 
-        <article>
-            <section id="dev-info" data-aos="fade-in" data-aos-id="dev-info">
-                <div id="dev-card">
-                    <aside id="img">
-                        <img src="res/dev.png" alt="Foto">
+    <article>
+        <section id="dev-info" class="dark-bg" data-aos="fade-in" data-aos-id="dev-info">
+            <div id="dev-card">
+                <aside id="img">
+                    <img src="res/dev.png" alt="Foto">
+                </aside>
+
+                <div id="info">
+                    <div id="basic-info">
+                        <p id="dev-name">{{ dev.name }}</p>
+                        <p id="dev-title">{{ dev.title }}</p>
+                    </div>
+
+                    <div id="info-social">
+                        <p id="dev-age">{{ dev.age }} anos</p>
+                        <p id="dev-email"><a :href="`mailto:${dev.contact.email}`"><i class="fa fa-envelope"></i>
+                            {{ dev.contact.email }}</a></p>
+                        <p id="dev-phone"><a :href="`tel:+${dev.contact.phone}`"><i class="fa fa-phone"></i>
+                            {{ dev.contact.formatted_phone }}</a></p>
+
+                        <p id="dev-links">
+                            <a :href="`https://github.com/${dev.contact.github}`"><i class="fa fa-github"></i></a>
+                            <a :href="`https://gitlab.com/${dev.contact.gitlab}`"><i class="fa fa-gitlab"></i></a>
+                            <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`"><i
+                                    class="fa fa-linkedin"></i></a>
+                            <a :href="`https://www.facebook.com/${dev.contact.facebook}`"><i class="fa fa-facebook"></i></a>
+                            <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`"><i
+                                    class="fa fa-stack-overflow"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" data-aos="fade-in" data-aos-id="about">
+            <h2>Olá</h2>
+            <p>{{ dev.brief }}</p>
+
+            <a id="download-resume-btn" href="res/resume.pdf"><i class="fa fa-download"></i> Baixar currículo</a>
+        </section>
+
+        <section id="resume" data-aos="fade-in" data-aos-id="resume">
+            <h1>Currículo</h1>
+
+            <h2><i class="fa fa-graduation-cap"></i> Formação acadêmica</h2>
+            <ul>
+                <education v-for="education in dev.resume.formation" :education="education"></education>
+            </ul>
+
+            <h2><i class="fa fa-briefcase"></i> Experiência profissional</h2>
+            <ul>
+                <job v-for="job in dev.resume.experience" v-bind:job="job"></job>
+            </ul>
+
+            <h2><i class="fa fa-wrench"></i> Habilidades técnicas</h2>
+            <div id="skills">
+                <div class="skill-kind" v-for="skill_kind in dev.skills">
+                    <p class="skill-kind-description">{{ skill_kind.description }}</p>
+                    <div class="skills">
+                        <skill v-for="skill in skill_kind.list" :skill="skill"></skill>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" data-aos="fade-in" data-aos-id="portfolio">
+            <h1>Alguns dos meus projetos</h1>
+
+            <portfolio-item v-for="portfolio_item in dev.portfolio" :portfolio_item="portfolio_item"></portfolio-item>
+        </section>
+
+        <section id="contact" class="dark-bg" data-aos="fade-in" data-aos-id="contact">
+            <div id="contact-content">
+                <h1>Entre em contato</h1>
+
+                <div id="contact-div">
+                    <aside id="social-links">
+                        <div id="links-1">
+                            <ul>
+                                <li><a :href="`mailto:${dev.contact.email}`"><i class="fa fa-envelope"></i>
+                                    {{ dev.contact.email }}</a></li>
+                                <li><a :href="`tel:${dev.contact.phone}`"><i class="fa fa-phone"></i>
+                                    {{ dev.contact.formatted_phone }}</a></li>
+                            </ul>
+                        </div>
+
+                        <div id="links-2">
+                            <ul>
+                                <li><a :href="`https://www.facebook.com/${dev.contact.facebook}`">Facebook</a></li>
+                                <li><a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`">LinkedIn</a></li>
+                                <li><a :href="`https://github.com/${dev.contact.github}`">GitHub</a></li>
+                                <li><a :href="`https://gitlab.com/${dev.contact.gitlab}`">GitLab</a></li>
+                            </ul>
+                        </div>
                     </aside>
 
-                    <div id="info">
-                        <div id="basic-info">
-                            <p id="dev-name">{{ dev.name }}</p>
-                            <p id="dev-title">{{ dev.title }}</p>
-                        </div>
-
-                        <div id="info-social">
-                            <p id="dev-age">{{ dev.age }} anos</p>
-                            <p id="dev-email"><a :href="`mailto:${dev.contact.email}`"><i class="fa fa-envelope"></i>{{ dev.contact.email }}</a></p>
-                            <p id="dev-phone"><a :href="`tel:+${dev.contact.phone}`"><i class="fa fa-phone"></i>{{ dev.contact.formatted_phone }}</a></p>
-
-                            <p id="dev-links">
-                                <a :href="`https://github.com/${dev.contact.github}`"><i class="fa fa-github"></i></a>
-                                <a :href="`https://gitlab.com/${dev.contact.gitlab}`"><i class="fa fa-gitlab"></i></a>
-                                <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`"><i class="fa fa-linkedin"></i></a>
-                                <a :href="`https://www.facebook.com/${dev.contact.facebook}`"><i class="fa fa-facebook"></i></a>
-                                <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`"><i class="fa fa-stack-overflow"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="about" data-aos="fade-in" data-aos-id="about">
-                <h2>Olá</h2>
-                <p>{{ dev.brief }}</p>
-
-                <a id="download-resume-btn" href="res/resume.pdf"><i class="fa fa-download"></i> Baixar currículo</a>
-            </section>
-
-            <section id="resume" data-aos="fade-in" data-aos-id="resume">
-                <h1>Currículo</h1>
-
-                <h2><i class="fa fa-graduation-cap"></i> Formação acadêmica</h2>
-                <ul>
-                    <education v-for="education in dev.resume.formation" :education="education"></education>
-                </ul>
-
-                <h2><i class="fa fa-briefcase"></i> Experiência profissional</h2>
-                <ul>
-                    <job v-for="job in dev.resume.experience" v-bind:job="job"></job>
-                </ul>
-
-                <h2><i class="fa fa-wrench"></i> Habilidades técnicas</h2>
-                <div id="skills">
-                    <div class="skill-kind">
-                        <p class="skill-kind-description">Linguagens</p>
-                        <div class="skills">
-                            <skill v-for="skill in dev.skills.languages" :skill="skill"></skill>
-                        </div>
-                    </div>
-
-                    <div class="skill-kind">
-                        <p class="skill-kind-description">Bancos de Dados</p>
-                        <div class="skills">
-                            <skill v-for="skill in dev.skills.databases" :skill="skill"></skill>
-                        </div>
-                    </div>
-
-                    <div class="skill-kind">
-                        <p class="skill-kind-description">Sistemas Operacionais</p>
-                        <div class="skills">
-                            <skill v-for="skill in dev.skills.os" :skill="skill"></skill>
-                        </div>
-                    </div>
-
-                    <div class="skill-kind">
-                        <p class="skill-kind-description">Ferramentas</p>
-                        <div class="skills">
-                            <skill v-for="skill in dev.skills.tools" :skill="skill"></skill>
-                        </div>
-                    </div>
-
-                    <div class="skill-kind">
-                        <p class="skill-kind-description">Frameworks</p>
-                        <div class="skills">
-                            <skill v-for="skill in dev.skills.frameworks" :skill="skill"></skill>
-                        </div>
-                    </div>
-
-                    <div class="skill-kind">
-                        <p class="skill-kind-description">Tecnologias</p>
-                        <div class="skills">
-                            <skill v-for="skill in dev.skills.techs" :skill="skill"></skill>
-                        </div>
-                    </div>
-
-                    <div class="skill-kind">
-                        <p class="skill-kind-description">Desenvolvimento</p>
-                        <div class="skills">
-                            <skill v-for="skill in dev.skills.dev" :skill="skill"></skill>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="portfolio" data-aos="fade-in" data-aos-id="portfolio">
-                <h1>Alguns dos meus projetos</h1>
-
-                <portfolio-item v-for="portfolio_item in dev.portfolio" :portfolio_item="portfolio_item"></portfolio-item>
-            </section>
-
-            <section id="contact" data-aos="fade-in" data-aos-id="contact">
-                <div id="contact-content">
-                    <h1>Entre em contato</h1>
-
-                    <div id="contact-div">
-                        <aside id="social-links">
-                            <div id="links-1">
-                                <ul>
-                                    <li><a :href="`mailto:${dev.contact.email}`"><i class="fa fa-envelope"></i>{{ dev.contact.email }}</a></li>
-                                    <li><a :href="`tel:${dev.contact.phone}`"><i class="fa fa-phone"></i> {{ dev.contact.formatted_phone }}</a></li>
-                                </ul>
+                    <div id="email-form">
+                        <form :action="`mailto:${dev.contact.email}`" method="get" enctype="text/plain">
+                            <div class="form-group">
+                                <label for="input_subject">Assunto</label>
+                                <input class="input-group" type="text" name="subject" id="input_subject" placeholder="">
                             </div>
 
-                            <div id="links-2">
-                                <ul>
-                                    <li><a :href="`https://www.facebook.com/${dev.contact.facebook}`">Facebook</a></li>
-                                    <li><a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`">LinkedIn</a></li>
-                                    <li><a :href="`https://github.com/${dev.contact.github}`">GitHub</a></li>
-                                    <li><a :href="`https://gitlab.com/${dev.contact.gitlab}`">GitLab</a></li>
-                                </ul>
+                            <div class="form-group">
+                                <label for="input_message">Mensagem</label>
+                                <textarea class="input-group" name="body" id="input_message" cols="30" rows="9"
+                                          placeholder=""></textarea>
                             </div>
-                        </aside>
 
-                        <div id="email-form">
-                            <form :action="`mailto:${dev.contact.email}`" method="get" enctype="text/plain">
-                                <div class="form-group">
-                                    <label for="input_subject">Assunto</label>
-                                    <input class="input-group" type="text" name="subject" id="input_subject" placeholder="">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="input_message">Mensagem</label>
-                                    <textarea class="input-group" name="body" id="input_message" cols="30" rows="9"
-                                      placeholder=""></textarea>
-                                </div>
-
-                                <input id="form-send-btn" type="submit" value="Enviar">
-                            </form>
-                        </div>
+                            <input id="form-send-btn" type="submit" value="Enviar">
+                        </form>
                     </div>
                 </div>
-            </section>
-        </article>
+            </div>
+        </section>
+    </article>
 
-        <footer>
-            <p>© 2020 {{ dev.name }} - Powered by GitHub Websites.</p>
-        </footer>
-    </div>
+    <footer class="dark-bg">
+        <p>© 2020 {{ dev.name }} - Powered by <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+    </footer>
 </div>
 
 <script type="text/javascript"
