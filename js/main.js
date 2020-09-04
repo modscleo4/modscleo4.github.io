@@ -43,7 +43,7 @@ Vue.component('portfolio-item', {
     props: ['portfolio_item'],
 
     template: `
-<a :href="portfolio_item.url">
+<a :href="portfolio_item.url" target="_blank">
     <div class="portfolio-item">
         <aside class="project-img">
             <img :src="portfolio_item.image_url" alt="Project">
@@ -74,21 +74,27 @@ window.addEventListener('scroll', e => {
             });
 
             if (document.querySelector(`header a[href="#${section}"]`)) {
-                document.querySelector('header').classList.remove('dark-bg');
+                document.querySelector('header').classList.remove('alt-bg');
                 document.querySelector(`header a[href="#${section}"]`).classList.add('active');
             }
 
             if (['dev-info', 'contact'].includes(section)) {
-                document.querySelector('header').classList.add('dark-bg');
+                document.querySelector('header').classList.add('alt-bg');
             }
         }
     });
 });
 
+function formatPhone(phone) {
+    const {CountryCode, DDD, P1, P2} = /(?<CountryCode>[\d]{2})(?<DDD>[\d]{2})9(?<P1>[\d]{4})(?<P2>[\d]{4})/gm.exec(phone).groups;
+    return `+${CountryCode} (${DDD}) 9${P1}-${P2}`;
+}
+
 window.addEventListener('DOMContentLoaded', e => {
     const app = new Vue({
         el: '#app',
         data: {
+            sidebarOpened: false,
             dev: {
                 name: 'Dhiego Cassiano Fogaça Barbosa',
                 title: 'Desenvolvedor full stack',
@@ -96,7 +102,6 @@ window.addEventListener('DOMContentLoaded', e => {
                 contact: {
                     email: 'modscleo4@outlook.com',
                     phone: '5514991513719',
-                    formatted_phone: '+55 (14) 99151-3719',
                     github: 'modscleo4',
                     gitlab: 'modscleo4',
                     linkedin: 'Modscleo4',
@@ -138,7 +143,7 @@ window.addEventListener('DOMContentLoaded', e => {
                     },
 
                     {
-                        description: 'Banco de Dados',
+                        description: 'Bancos de Dados',
                         list: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB',],
                     },
 
@@ -159,7 +164,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
                     {
                         description: 'Tecnologias',
-                        list: ['Node.js', 'WebSocket',],
+                        list: ['Node.js', 'WebSocket', 'Fetch API', 'CSS Grid', 'CSS Flexbox'],
                     },
 
                     {
@@ -191,6 +196,14 @@ window.addEventListener('DOMContentLoaded', e => {
                         description: 'O SGE é um Trabalho de Conclusão de Curso apresentado ao CTI - Colégio Técnico Industrial "Prof. Isaac Portal Roldán" - Unesp - Universidade Estadual Paulista "Júlio de Mesquita Filho" - Campus de Bauru. Desenvolvido pela equipe Blitz, o projeto tem como finalidade gerenciar os estágios do CTI.',
                         techs: ['PHP', 'HTML', 'CSS', 'JS', 'Laravel', 'PostgreSQL', 'SQL', 'MVC',],
                     },
+
+                    {
+                        url: 'https://modscleo4.github.io/kana-list',
+                        image_url: 'res/project-4.png',
+                        name: 'Kana List',
+                        description: 'A website with a Kana (Hiragana and Katakana) list.',
+                        techs: ['HTML', 'CSS', 'JS', 'Fetch API', 'CSS Grid', 'Vue.js'],
+                    },
                 ]
             },
         }
@@ -198,7 +211,7 @@ window.addEventListener('DOMContentLoaded', e => {
 });
 
 AOS.init({
-    disable: true,
+    disable: false,
     startEvent: 'DOMContentLoaded',
     initClassName: 'aos-init',
     animatedClassName: 'aos-animate',

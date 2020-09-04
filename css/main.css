@@ -2,25 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
 :root {
-    --text-color: rgba(68, 68, 68, 1);
-    --text-color-dark: rgba(220, 220, 220, 1);
-    --text-color-hover: rgb(68, 48, 158);
-    --text-color-hover-dark: rgb(141, 128, 194);
-    --link-color: rgb(81, 81, 81);
-    --link-color-dark: rgb(236, 236, 236);
-    --link-color-hover: rgb(75, 54, 174);
-    --link-color-hover-dark: rgb(153, 138, 208);
-    --background-color: rgba(239, 239, 239, 0.95);
-    --body-color: rgb(83, 30, 180);
-    --body-color-dark: rgb(147, 132, 212);
-    --input-background-color: rgb(246, 246, 246);
-    --input-border-color: rgb(67, 59, 97);
-    --input-border-color-hover: rgb(100, 77, 153);
-    --input-border-color-focus: rgb(74, 52, 128);
-    --btn-text-color: rgb(231, 231, 231);
-    --btn-background-color: rgb(65, 48, 158);
-    --btn-background-color-hover: rgb(100, 30, 180);
-    --progressbar-color: rgb(83, 30, 180);
+    --app-max-width: 1300px;
 }
 
 * {
@@ -38,6 +20,46 @@ body {
     color: var(--text-color);
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b3b3b;
+    border: 0 none #ffffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #303030;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #212121;
+}
+
+::-webkit-scrollbar-track {
+    background: #b5b5b5;
+    border: 0 none #ffffff;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #a1a1a1;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #808080;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
 a {
     color: var(--link-color);
     text-decoration: none;
@@ -48,16 +70,16 @@ a:hover {
     text-decoration: underline;
 }
 
-.dark-bg {
-    color: var(--text-color-dark);
+.alt-bg {
+    color: var(--text-color-alt);
 }
 
-.dark-bg a {
-    color: var(--link-color-dark);
+.alt-bg a {
+    color: var(--link-color-alt);
 }
 
-.dark-bg a:hover {
-    color: var(--link-color-hover-dark) !important;
+.alt-bg a:hover {
+    color: var(--link-color-hover-alt) !important;
 }
 
 #particles-js {
@@ -81,23 +103,78 @@ a:hover {
     z-index: 1;
 }
 
+.sidebar {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 0;
+    z-index: 1100;
+    background: var(--background-color);
+    margin-top: calc(75px - 16px);
+    transition: width 100ms;
+}
+
+.sidebar.sidebar-right {
+    left: unset;
+    right: 0;
+}
+
+.sidebar.open {
+    width: 300px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 0;
+    padding: 16px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: min-content;
+    align-items: center;
+}
+
+.sidebar-backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 950;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
 header {
-    max-width: inherit;
-    width: inherit;
+    max-width: var(--app-max-width);
+    width: 100%;
     font-family: 'Oswald', sans-serif;
     font-size: 14pt;
-    padding: 16px calc(100vh - 600px);
+    padding: 16px 32px;
     position: fixed;
     opacity: 1;
     background: var(--background-color);
     z-index: 2;
     color: var(--text-color);
     transition: all 100ms;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
-header.dark-bg {
+header.alt-bg {
     background: none;
-    color: var(--text-color-dark);
+    color: var(--text-color-alt);
+}
+
+header div {
+    width: max-content;
+    display: inline;
 }
 
 header a {
@@ -106,11 +183,11 @@ header a {
 }
 
 header a:hover {
-    color: var(--text-color-hover-dark);
+    color: var(--text-color-hover-alt);
 }
 
 header a.active {
-    color: var(--body-color-dark);
+    color: var(--text-color-active);
 }
 
 header.content a:hover {
@@ -121,15 +198,37 @@ header.content a.active {
     color: var(--body-color);
 }
 
+.sidebar-button {
+    float: right;
+    display: none;
+}
+
+.sidebar-button button {
+    color: var(--link-color);
+}
+
+.sidebar-button button:hover {
+    color: var(--link-color-hover);
+}
+
 section {
+    width: 100%;
     border-top: 1px solid rgba(0, 0, 0, 0.03125);
-    padding: 64px calc(100vh - 600px) 32px;
+    padding: 64px 0 32px;
     background: var(--background-color);
+    display: flex;
+    justify-content: center;
 }
 
 section h1 {
     margin-bottom: 72px;
     font-family: 'Oswald', sans-serif;
+}
+
+.section-wrapper {
+    max-width: var(--app-max-width);
+    width: 100%;
+    padding: 0 32px;
 }
 
 #dev-info {
@@ -264,23 +363,22 @@ section h1 {
 }
 
 #resume #skills .skill-kind .skills {
-    display: grid;
-    grid-template-rows: auto;
-    grid-auto-flow: column;
-    grid-auto-columns: min-content;
-    grid-column-gap: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
     width: 100%;
-    overflow-x: auto;
-    padding-right: 16px;
+    margin: 0 -4px;
 }
 
 #resume #skills .skill-kind .skills .skill {
-    width: min-content;
     border-radius: 4px;
     border: #777777 solid 1px;
     padding: 4px 8px;
     transition: all 100ms ease;
     height: min-content;
+    margin: 4px;
 }
 
 #resume #skills .skill-kind .skills .skill:hover {
@@ -294,27 +392,32 @@ section h1 {
 }
 
 #portfolio {
+
+}
+
+#portfolio .portfolio-items {
     display: grid;
     grid-template-columns: auto;
-    grid-row-gap: 16px;
+    grid-row-gap: 32px;
     overflow-x: hidden;
 }
 
 #portfolio a {
     text-decoration: none;
     transition: all 500ms;
+    background: var(--odd);
 }
 
 #portfolio a:hover {
     text-decoration: none;
     color: var(--text-color);
     box-shadow: -1px 1px 5px 0 rgba(0, 0, 0, 0.35);
-    background: var(--btn-text-color);
+    background: var(--even);
 }
 
 #portfolio .portfolio-item {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 40% auto;
     grid-column-gap: 16px;
 }
 
@@ -330,7 +433,7 @@ section h1 {
     display: grid;
     grid-template-rows: auto auto auto;
     height: fit-content;
-    grid-row-gap: 16px;
+    grid-row-gap: 32px;
     overflow: auto;
 }
 
@@ -353,17 +456,18 @@ section h1 {
 }
 
 #portfolio .portfolio-item .project-info .techs {
-    display: grid;
-    grid-template-rows: auto;
-    grid-auto-flow: column;
-    width: fit-content;
-    grid-column-gap: 8px;
-    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 100%;
+    margin: 0 -4px;
     padding-right: 16px;
 }
 
 #portfolio .portfolio-item .project-info .techs .stack {
-    width: min-content;
+    margin: 4px;
     border-radius: 4px;
     border: #777777 solid 1px;
     padding: 4px 8px;
@@ -378,7 +482,7 @@ section h1 {
 
 #contact {
     background: rgba(255, 255, 255, 0.05);
-    padding-top: 92px;
+    padding-top: 64px;
     padding-bottom: 16px;
 }
 
@@ -399,8 +503,13 @@ section h1 {
     outline: none;
     padding: 4px;
     font-size: 12pt;
+    color: var(--text-color);
     background-color: var(--input-background-color);
     transition: all 100ms;
+}
+
+#contact textarea {
+    resize: none;
 }
 
 #contact input[type="text"]:hover,
@@ -420,6 +529,7 @@ section h1 {
 #contact #contact-div {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
+    grid-column-gap: 16px;
     grid-template-rows: auto;
     grid-auto-flow: row;
 }
@@ -451,14 +561,14 @@ section h1 {
     width: 100%;
     border: none;
     padding: 12px 20px;
-    background: var(--body-color-dark);
+    background: var(--body-color-alt);
     transition: all 100ms ease;
     border-radius: 50px;
     color: var(--btn-text-color);
 }
 
 #contact #contact-div #email-form #form-send-btn:hover {
-    background: var(--text-color-hover-dark);
+    background: var(--text-color-hover-alt);
     text-decoration: none;
 }
 
@@ -473,12 +583,20 @@ footer p {
     margin: 0;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 960px) {
     #contact #contact-div {
         grid-template-columns: auto auto;
         grid-auto-flow: column;
         grid-template-rows: auto;
-        grid-column-gap: 16px;
+    }
+}
+
+@media (max-width: 800px) {
+    #portfolio .portfolio-item {
+        grid-template-rows: auto auto;
+        grid-auto-flow: column;
+        grid-template-columns: auto;
+        grid-row-gap: 16px;
     }
 }
 
@@ -489,17 +607,17 @@ footer p {
         grid-template-rows: auto auto;
         grid-row-gap: 32px;
     }
+
+    header .links {
+        display: none;
+    }
+
+    .sidebar-button {
+        display: unset;
+    }
 }
 
 @media (max-width: 480px) {
-    header {
-        padding: 16px 24px;
-    }
-
-    section {
-        padding: 64px 24px 32px;
-    }
-
     #dev-info #dev-card #info #info-social {
         padding-top: 16px;
         margin-left: calc(-50vw + 64px);
@@ -511,13 +629,6 @@ footer p {
 
     #resume #skills {
         grid-template-columns: auto;
-    }
-
-    #portfolio .portfolio-item {
-        grid-template-rows: auto auto;
-        grid-auto-flow: column;
-        grid-template-columns: auto;
-        grid-row-gap: 16px;
     }
 
     #contact #contact-div #social-links #links-2 ul {
