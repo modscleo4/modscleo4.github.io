@@ -1,6 +1,8 @@
 @media (prefers-color-scheme: light) {
     :root {
-        --background-color: rgba(239, 239, 239, 0.95);
+        --background-color: rgba(239, 239, 239, 1);
+        --bg-gradient-start: rgb(50, 32, 152);
+        --bg-gradient-end: rgb(144, 10, 196);
         --card-color: rgb(253, 253, 253);
         --body-color: rgb(83, 30, 180);
         --body-color-alt: rgb(147, 132, 212);

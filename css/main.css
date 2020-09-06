@@ -21,8 +21,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-button {
@@ -36,11 +36,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #303030;
+    background: #262626;
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: #212121;
+    background: #161616;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,11 +49,11 @@ body {
 }
 
 ::-webkit-scrollbar-track:hover {
-    background: #a1a1a1;
+    background: #b5b5b5;
 }
 
 ::-webkit-scrollbar-track:active {
-    background: #808080;
+    background: #b5b5b5;
 }
 
 ::-webkit-scrollbar-corner {
@@ -86,10 +86,8 @@ a:hover {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: var(--body-color);
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%) no-repeat 50% 50%;
     opacity: 1;
     filter: blur(1px);
     transform: scale(1.1);
@@ -110,7 +108,7 @@ a:hover {
     width: 0;
     z-index: 1100;
     background: var(--background-color);
-    margin-top: calc(75px - 16px);
+    margin-top: 60px;
     transition: width 100ms;
 }
 
@@ -137,6 +135,7 @@ a:hover {
     grid-template-columns: auto auto;
     grid-template-rows: min-content;
     align-items: center;
+    font-family: 'Oswald', sans-serif;
 }
 
 .sidebar-backdrop {
@@ -149,22 +148,19 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-
 header {
-    max-width: var(--app-max-width);
     width: 100%;
     font-family: 'Oswald', sans-serif;
     font-size: 14pt;
-    padding: 16px 32px;
+    padding: 16px 0;
     position: fixed;
     opacity: 1;
     background: var(--background-color);
-    z-index: 2;
+    z-index: 1000;
     color: var(--text-color);
     transition: all 100ms;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 header.alt-bg {
@@ -172,7 +168,8 @@ header.alt-bg {
     color: var(--text-color-alt);
 }
 
-header div {
+header .links,
+header .sidebar-button {
     width: max-content;
     display: inline;
 }
@@ -198,17 +195,25 @@ header.content a.active {
     color: var(--body-color);
 }
 
-.sidebar-button {
+header .sidebar-button {
     float: right;
     display: none;
 }
 
-.sidebar-button button {
+header .sidebar-button button {
     color: var(--link-color);
 }
 
-.sidebar-button button:hover {
+header .sidebar-button button:hover {
     color: var(--link-color-hover);
+}
+
+header.alt-bg .sidebar-button button {
+    color: var(--text-color-alt);
+}
+
+header .sidebar-button button:hover {
+    color: var(--text-color-hover-alt);
 }
 
 section {
@@ -240,7 +245,12 @@ section h1 {
 }
 
 #dev-info #dev-card {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    grid-row-gap: 16px;
+    justify-items: center;
     padding-bottom: 32px;
 }
 
@@ -255,8 +265,7 @@ section h1 {
 }
 
 #dev-info #dev-card #info {
-    flex-grow: 1;
-    margin-left: 24px;
+    text-align: center;
 }
 
 #dev-info #dev-card #info p {
@@ -317,6 +326,18 @@ section h1 {
 
 #resume ul li {
     padding-bottom: 8px;
+    position: relative;
+}
+
+#resume ul li:not(:last-child)::before {
+    border-left: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, #784de0, #c65ed6);
+    content: ' ';
+    position: absolute;
+    height: 100%;
+    margin-top: 18px;
+    margin-left: -17px;
 }
 
 #resume ul li p {
@@ -608,29 +629,20 @@ footer p {
         grid-row-gap: 32px;
     }
 
+    .sidebar {
+        margin-top: 75px;
+    }
+
     header .links {
         display: none;
     }
 
-    .sidebar-button {
+    header .sidebar-button {
         display: unset;
     }
 }
 
 @media (max-width: 480px) {
-    #dev-info #dev-card #info #info-social {
-        padding-top: 16px;
-        margin-left: calc(-50vw + 64px);
-    }
-
-    #dev-info #dev-card #info #links a {
-        font-size: 20pt;
-    }
-
-    #resume #skills {
-        grid-template-columns: auto;
-    }
-
     #contact #contact-div #social-links #links-2 ul {
         columns: 2;
     }

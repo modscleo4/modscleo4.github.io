@@ -34,17 +34,19 @@
     </nav>
 
     <header class="alt-bg">
-        <div class="links">
-            <a href="#about">Sobre</a>
-            <a href="#resume">Currículo</a>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#contact">Contato</a>
-        </div>
+        <div class="section-wrapper">
+            <div class="links">
+                <a href="#about">Sobre</a>
+                <a href="#resume">Currículo</a>
+                <a href="#portfolio">Portfólio</a>
+                <a href="#contact">Contato</a>
+            </div>
 
-        <div class="sidebar-button">
-            <button class="btn" type="button" data-toggle="modal" @click="sidebarOpened = !sidebarOpened">
-                <i class="fa fa-bars"></i>
-            </button>
+            <div class="sidebar-button">
+                <button class="btn" type="button" data-toggle="modal" @click="sidebarOpened = !sidebarOpened">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -54,9 +56,9 @@
         <section id="dev-info" class="alt-bg">
             <div class="section-wrapper" data-aos="fade-in" data-aos-id="dev-info">
                 <div id="dev-card">
-                    <aside id="img">
+                    <div id="img">
                         <img src="res/dev.png" alt="Foto">
-                    </aside>
+                    </div>
 
                     <div id="info">
                         <div id="basic-info">
@@ -65,16 +67,12 @@
                         </div>
 
                         <div id="info-social">
-                            <p id="dev-age">{{ dev.age }} anos</p>
-                            <p id="dev-email"><a :href="`mailto:${dev.contact.email}`"><i class="fa fa-envelope"></i> {{ dev.contact.email}}</a></p>
-                            <p id="dev-phone"><a :href="`tel:+${dev.contact.phone}`"><i class="fa fa-phone"></i> {{ formatPhone(dev.contact.phone)}}</a></p>
-
                             <p id="dev-links">
-                                <a :href="`https://github.com/${dev.contact.github}`"><i class="fa fa-github"></i></a>
-                                <a :href="`https://gitlab.com/${dev.contact.gitlab}`"><i class="fa fa-gitlab"></i></a>
-                                <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`"><i class="fa fa-linkedin"></i></a>
-                                <a :href="`https://www.facebook.com/${dev.contact.facebook}`"><i class="fa fa-facebook"></i></a>
-                                <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`"><i class="fa fa-stack-overflow"></i></a>
+                                <a :href="`https://github.com/${dev.contact.github}`" target="_blank"><i class="fa fa-github"></i></a>
+                                <a :href="`https://gitlab.com/${dev.contact.gitlab}`" target="_blank"><i class="fa fa-gitlab"></i></a>
+                                <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                <a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`" target="_blank"><i class="fa fa-stack-overflow"></i></a>
                             </p>
                         </div>
                     </div>
@@ -146,10 +144,10 @@
 
                             <div id="links-2">
                                 <ul>
-                                    <li><a :href="`https://www.facebook.com/${dev.contact.facebook}`">Facebook</a></li>
-                                    <li><a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`">LinkedIn</a></li>
-                                    <li><a :href="`https://github.com/${dev.contact.github}`">GitHub</a></li>
-                                    <li><a :href="`https://gitlab.com/${dev.contact.gitlab}`">GitLab</a></li>
+                                    <li><a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank">Facebook</a></li>
+                                    <li><a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`" target="_blank">LinkedIn</a></li>
+                                    <li><a :href="`https://github.com/${dev.contact.github}`" target="_blank">GitHub</a></li>
+                                    <li><a :href="`https://gitlab.com/${dev.contact.gitlab}`" target="_blank">GitLab</a></li>
                                 </ul>
                             </div>
                         </aside>
@@ -176,7 +174,7 @@
     </article>
 
     <footer class="alt-bg">
-        <p>© 2020 {{ dev.name }} - Powered by <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+        <p>© 2020 {{ dev.name }} - Powered by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
     </footer>
 </div>
 

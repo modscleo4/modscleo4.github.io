@@ -46,7 +46,7 @@ Vue.component('portfolio-item', {
 <a :href="portfolio_item.url" target="_blank">
     <div class="portfolio-item">
         <aside class="project-img">
-            <img :src="portfolio_item.image_url" alt="Project">
+            <img :src="portfolio_item.image_url" alt="Project Image">
         </aside>
 
         <div class="project-info">
@@ -55,9 +55,7 @@ Vue.component('portfolio-item', {
             <div class="techs-div">
                 <p>Tecnologias: </p>
                 <div class="techs">
-                    <div class="stack" v-for="tech in portfolio_item.techs">
-                        {{ tech }}
-                    </div>
+                    <div class="stack" v-for="tech in portfolio_item.techs">{{ tech }}</div>
                 </div>
             </div>
         </div>
@@ -90,124 +88,122 @@ function formatPhone(phone) {
     return `+${CountryCode} (${DDD}) 9${P1}-${P2}`;
 }
 
-window.addEventListener('DOMContentLoaded', e => {
-    const app = new Vue({
-        el: '#app',
-        data: {
-            sidebarOpened: false,
-            dev: {
-                name: 'Dhiego Cassiano Fogaça Barbosa',
-                title: 'Desenvolvedor full stack',
-                age: 18,
-                contact: {
-                    email: 'modscleo4@outlook.com',
-                    phone: '5514991513719',
-                    github: 'modscleo4',
-                    gitlab: 'modscleo4',
-                    linkedin: 'Modscleo4',
-                    facebook: 'Modscleo4',
-                    stackoverflow: '147419/modscleo4',
-                },
-                brief: 'Sou um programador pleno capaz de desenvolver um website completo do zero. Atualmente busco por colocação profissional no mercado de trabalho. Sou proativo, aprendo rápido, com boa comunicação e com bom desempenho em trabalho em grupo.',
-                resume: {
-                    formation: [
-                        {
-                            school_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
-                            course: 'Bacharel em Ciência da Computação',
-                            start_year: 2020,
-                            end_year: 2024,
-                        },
-
-                        {
-                            school_name: 'Colégio Técnico Industrial “Prof. Isaac Portal Roldán”',
-                            course: 'Técnico em Informática',
-                            start_year: 2017,
-                            end_year: 2019,
-                        },
-                    ],
-
-                    experience: [
-                        {
-                            company_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
-                            description: 'Estagiário',
-                            activities: 'Gerenciei redes Linux usando o protocolo LDAP, além de dar manutenção aos computadores.',
-                            start_year: 2019,
-                            end_year: 2020,
-                        },
-                    ]
-                },
-                skills: [
+const app = new Vue({
+    el: '#app',
+    data: {
+        sidebarOpened: false,
+        dev: {
+            name: 'Dhiego Cassiano Fogaça Barbosa',
+            title: 'Desenvolvedor full stack',
+            age: 18,
+            contact: {
+                email: 'modscleo4@outlook.com',
+                phone: '5514991513719',
+                github: 'modscleo4',
+                gitlab: 'modscleo4',
+                linkedin: 'Modscleo4',
+                facebook: 'Modscleo4',
+                stackoverflow: '147419/modscleo4',
+            },
+            brief: 'Sou um programador pleno capaz de desenvolver um website completo do zero. Atualmente busco por colocação profissional no mercado de trabalho. Sou proativo, aprendo rápido, com boa comunicação e com bom desempenho em trabalho em grupo.',
+            resume: {
+                formation: [
                     {
-                        description: 'Linguagens',
-                        list: ['C', 'C++', 'C#', 'PHP', 'Java', 'HTML', 'CSS', 'JS', 'Python', 'SQL',],
+                        school_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
+                        course: 'Bacharel em Ciência da Computação',
+                        start_year: 2020,
+                        end_year: 2024,
                     },
 
                     {
-                        description: 'Bancos de Dados',
-                        list: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB',],
-                    },
-
-                    {
-                        description: 'Sistemas Operacionais',
-                        list: ['Windows', 'Linux',],
-                    },
-
-                    {
-                        description: 'Ferramentas',
-                        list: ['Git', 'GitHub',],
-                    },
-
-                    {
-                        description: 'Frameworks',
-                        list: ['React', 'Vue.js', 'Laravel',]
-                    },
-
-                    {
-                        description: 'Tecnologias',
-                        list: ['Node.js', 'WebSocket', 'Fetch API', 'CSS Grid', 'CSS Flexbox'],
-                    },
-
-                    {
-                        description: 'Desenvolvimento',
-                        list: ['TDD', 'CI', 'CD', 'MVC', 'SPA'],
+                        school_name: 'Colégio Técnico Industrial “Prof. Isaac Portal Roldán”',
+                        course: 'Técnico em Informática',
+                        start_year: 2017,
+                        end_year: 2019,
                     },
                 ],
-                portfolio: [
-                    {
-                        url: 'https://github.com/modscleo4/jsdb',
-                        image_url: 'res/project-1.png',
-                        name: 'JSDB',
-                        description: 'JSDB is a project to create a Node.js database manager which supports SQL. Built on JavaScript, the JSDB uses JSON to store database data.',
-                        techs: ['JS', 'Node.js', 'SQL'],
-                    },
 
+                experience: [
                     {
-                        url: 'https://github.com/modscleo4/WPFUI',
-                        image_url: 'res/project-2.png',
-                        name: 'WPFUI',
-                        description: 'WPFUI is a WPF UI library written in C# and XAML. It supports custom window and dialog box styles.',
-                        techs: ['WPF', 'C#', 'XAML', '.NET', 'Windows',],
-                    },
-
-                    {
-                        url: 'https://github.com/blitzcti/sgecti',
-                        image_url: 'res/project-3.png',
-                        name: 'SGE',
-                        description: 'O SGE é um Trabalho de Conclusão de Curso apresentado ao CTI - Colégio Técnico Industrial "Prof. Isaac Portal Roldán" - Unesp - Universidade Estadual Paulista "Júlio de Mesquita Filho" - Campus de Bauru. Desenvolvido pela equipe Blitz, o projeto tem como finalidade gerenciar os estágios do CTI.',
-                        techs: ['PHP', 'HTML', 'CSS', 'JS', 'Laravel', 'PostgreSQL', 'SQL', 'MVC',],
-                    },
-
-                    {
-                        url: 'https://modscleo4.github.io/kana-list',
-                        image_url: 'res/project-4.png',
-                        name: 'Kana List',
-                        description: 'A website with a Kana (Hiragana and Katakana) list.',
-                        techs: ['HTML', 'CSS', 'JS', 'Fetch API', 'CSS Grid', 'Vue.js'],
+                        company_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
+                        description: 'Estagiário',
+                        activities: 'Gerenciei redes Linux usando o protocolo LDAP, além de dar manutenção aos computadores.',
+                        start_year: 2019,
+                        end_year: 2020,
                     },
                 ]
             },
-        }
-    });
+            skills: [
+                {
+                    description: 'Linguagens',
+                    list: ['C', 'C++', 'C#', 'PHP', 'Java', 'HTML', 'CSS', 'JS', 'Python', 'SQL',],
+                },
+
+                {
+                    description: 'Bancos de Dados',
+                    list: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB',],
+                },
+
+                {
+                    description: 'Sistemas Operacionais',
+                    list: ['Windows', 'Linux',],
+                },
+
+                {
+                    description: 'Ferramentas',
+                    list: ['Git', 'GitHub',],
+                },
+
+                {
+                    description: 'Frameworks',
+                    list: ['React', 'Vue.js', 'Laravel',]
+                },
+
+                {
+                    description: 'Tecnologias',
+                    list: ['Node.js', 'WebSocket', 'Fetch API', 'CSS Grid', 'CSS Flexbox'],
+                },
+
+                {
+                    description: 'Desenvolvimento',
+                    list: ['TDD', 'CI', 'CD', 'MVC', 'SPA'],
+                },
+            ],
+            portfolio: [
+                {
+                    url: 'https://github.com/modscleo4/jsdb',
+                    image_url: 'res/project-1.png',
+                    name: 'JSDB',
+                    description: 'JSDB is a project to create a Node.js database manager which supports SQL. Built on JavaScript, the JSDB uses JSON to store database data.',
+                    techs: ['JS', 'Node.js', 'SQL'],
+                },
+
+                {
+                    url: 'https://github.com/modscleo4/WPFUI',
+                    image_url: 'res/project-2.png',
+                    name: 'WPFUI',
+                    description: 'WPFUI is a WPF UI library written in C# and XAML. It supports custom window and dialog box styles.',
+                    techs: ['WPF', 'C#', 'XAML', '.NET', 'Windows',],
+                },
+
+                {
+                    url: 'https://github.com/blitzcti/sgecti',
+                    image_url: 'res/project-3.png',
+                    name: 'SGE',
+                    description: 'O SGE é um Trabalho de Conclusão de Curso apresentado ao CTI - Colégio Técnico Industrial "Prof. Isaac Portal Roldán" - Unesp - Universidade Estadual Paulista "Júlio de Mesquita Filho" - Campus de Bauru. Desenvolvido pela equipe Blitz, o projeto tem como finalidade gerenciar os estágios do CTI.',
+                    techs: ['PHP', 'HTML', 'CSS', 'JS', 'Laravel', 'PostgreSQL', 'SQL', 'MVC',],
+                },
+
+                {
+                    url: 'https://modscleo4.github.io/kana-list',
+                    image_url: 'res/project-4.png',
+                    name: 'Kana List',
+                    description: 'A website with a Kana (Hiragana and Katakana) list.',
+                    techs: ['HTML', 'CSS', 'JS', 'Fetch API', 'CSS Grid', 'Vue.js'],
+                },
+            ]
+        },
+    }
 });
 
 AOS.init({
