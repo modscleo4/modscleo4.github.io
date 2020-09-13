@@ -2,65 +2,15 @@ particlesJS.load('particles-js', 'js/particles.json', () => {
     console.log('callback - particles.js config loaded');
 });
 
-Vue.component('education', {
-    props: ['education'],
+Vue.directive('select2', {
+    twoWay: true,
+    bind: function (el, binding, vnode) {
+        function handler(e) {
+            el.dispatchEvent(new Event('change', {target: e.target}));
+        }
 
-    template: `
-<li>
-    <p class="school-name">{{ education.school_name }}</p>
-    <div class="school-details">
-        <p>{{ education.course }}</p>
-        <p>{{ education.start_year }} - {{ education.end_year }}</p>
-    </div>
-</li>`,
-});
-
-Vue.component('job', {
-    props: ['job'],
-
-    template: `
-<li>
-    <p class="company-name">{{ job.company_name }}</p>
-    <div class="company-details">
-        <p>{{ job.description }}</p>
-        <span class="divider"></span>
-        <p>{{ job.activities }}</p>
-        <p>{{ job.start_year }} - {{ job.end_year }}</p>
-    </div>
-</li>`,
-});
-
-Vue.component('skill', {
-    props: ['skill'],
-
-    template: `
-<div class="skill">
-    <p>{{ skill }}</p>
-</div>`,
-});
-
-Vue.component('portfolio-item', {
-    props: ['portfolio_item'],
-
-    template: `
-<a :href="portfolio_item.url" target="_blank">
-    <div class="portfolio-item">
-        <aside class="project-img">
-            <img :src="portfolio_item.image_url" alt="Project Image">
-        </aside>
-
-        <div class="project-info">
-            <p class="project-name">{{ portfolio_item.name }}</p>
-            <p class="project-description">{{ portfolio_item.description }}</p>
-            <div class="techs-div">
-                <p>Tecnologias: </p>
-                <div class="techs">
-                    <div class="stack" v-for="tech in portfolio_item.techs">{{ tech }}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</a>`,
+        jQuery(el).select2().on('select2:select', handler).on('select2:unselect', handler);
+    },
 });
 
 window.addEventListener('scroll', e => {
@@ -69,11 +19,13 @@ window.addEventListener('scroll', e => {
         if (window.scrollY > (target.offsetTop - 32)) {
             a.filter(s => document.querySelector(`header a[href="#${s}"]`)).forEach(s => {
                 document.querySelector(`header a[href="#${s}"]`).classList.remove('active');
+                document.querySelector(`nav a[href="#${s}"]`).classList.remove('active');
             });
 
             if (document.querySelector(`header a[href="#${section}"]`)) {
                 document.querySelector('header').classList.remove('alt-bg');
                 document.querySelector(`header a[href="#${section}"]`).classList.add('active');
+                document.querySelector(`nav a[href="#${section}"]`).classList.add('active');
             }
 
             if (['dev-info', 'contact'].includes(section)) {
@@ -92,6 +44,7 @@ const app = new Vue({
     el: '#app',
     data: {
         sidebarOpened: false,
+        tech_filter: [],
         dev: {
             name: 'Dhiego Cassiano Fogaça Barbosa',
             title: 'Desenvolvedor full stack',
@@ -103,9 +56,11 @@ const app = new Vue({
                 gitlab: 'modscleo4',
                 linkedin: 'Modscleo4',
                 facebook: 'Modscleo4',
+                twitter: 'modscleo4',
+                reddit: 'modscleo4',
                 stackoverflow: '147419/modscleo4',
             },
-            brief: 'Sou um programador pleno capaz de desenvolver um website completo do zero. Atualmente busco por colocação profissional no mercado de trabalho. Sou proativo, aprendo rápido, com boa comunicação e com bom desempenho em trabalho em grupo.',
+            brief: 'Bem-vindo ao meu portfólio. Sou um entusiasta por tecnologia desde os 9 anos de idade. Aprendi programação por curiosidade aos 12 anos, sendo minha primeira linguagem o Visual Basic .NET. Desde então decidi seguir a carreira de Computação e continuei aprendendo novas linguagens, como C, Java, PHP, HTML + CSS + JS.',
             resume: {
                 formation: [
                     {
@@ -166,8 +121,25 @@ const app = new Vue({
 
                 {
                     description: 'Desenvolvimento',
-                    list: ['TDD', 'CI', 'CD', 'MVC', 'SPA'],
+                    list: ['TDD', 'CI', 'CD', 'MVC', 'SPA', 'Docker',],
                 },
+            ],
+            languages: [
+                {
+                    name: 'English',
+                    read: 2,
+                    write: 2,
+                    listen: 2,
+                    speak: 2,
+                },
+
+                {
+                    name: 'Español',
+                    read: 0,
+                    write: 0,
+                    listen: 0,
+                    speak: 0,
+                }
             ],
             portfolio: [
                 {
@@ -203,7 +175,33 @@ const app = new Vue({
                 },
             ]
         },
-    }
+    },
+
+    computed: {
+        portfolio: function () {
+            if (this.tech_filter.length === 0) {
+                return this.dev.portfolio;
+            }
+
+            return this.dev.portfolio.filter(p => p.techs.find(t => this.tech_filter.includes(t)));
+        },
+    },
+
+    methods: {
+        techs: function () {
+            return this.dev.skills.reduce((a, s) => a.concat(s.list), []);
+        },
+
+        language_level: function (i) {
+            return ['Básico', 'Intermediário', 'Avançado', 'Fluente'][i];
+        }
+    },
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    jQuery('#tech-filter').select2({
+        language: 'pt-BR',
+    });
 });
 
 AOS.init({

@@ -1,24 +1,32 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <meta name="description" content="Portfolio website."/>
+    <meta name="keywords" content="html, html5, css, css3, css-grid, css-flexbox, js, json, vue, vuejs, portfolio"/>
+    <meta name="robots" content="index"/>
+    <meta name="author" content="Modscleo4"/>
+
+    <title>Dhiego Cassiano Fogaça Barbosa</title>
 
     <!-- Bootstrap 4.3.1 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
 
     <!-- Font Awesome 4.7.0 -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
 
     <!-- Animate on Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/themes/light.css">
-    <link rel="stylesheet" href="css/themes/dark.css">
-
-    <title>Dhiego Cassiano Fogaça Barbosa</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/themes/light.css"/>
+    <link rel="stylesheet" href="css/themes/dark.css"/>
 </head>
 <body>
 <div id="particles-js"></div>
@@ -72,6 +80,8 @@
                                 <a :href="`https://gitlab.com/${dev.contact.gitlab}`" target="_blank"><i class="fa fa-gitlab"></i></a>
                                 <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`" target="_blank"><i class="fa fa-linkedin"></i></a>
                                 <a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a :href="`https://twitter.com/${dev.contact.twitter}`" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a :href="`https://www.reddit.com/user/${dev.contact.reddit}`" target="_blank"><i class="fa fa-reddit-alien"></i></a>
                                 <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`" target="_blank"><i class="fa fa-stack-overflow"></i></a>
                             </p>
                         </div>
@@ -96,13 +106,42 @@
                 <h2><i class="fa fa-graduation-cap"></i> Formação acadêmica</h2>
 
                 <ul>
-                    <education v-for="education in dev.resume.formation" :education="education"></education>
+                    <li v-for="education in dev.resume.formation">
+                        <p class="school-name">{{ education.school_name }}</p>
+                        <div class="school-details">
+                            <p>{{ education.course }}</p>
+                            <p>{{ education.start_year }} - {{ education.end_year }}</p>
+                        </div>
+                    </li>
                 </ul>
 
                 <h2><i class="fa fa-briefcase"></i> Experiência profissional</h2>
 
                 <ul>
-                    <job v-for="job in dev.resume.experience" :job="job"></job>
+                    <li v-for="job in dev.resume.experience">
+                        <p class="company-name">{{ job.company_name }}</p>
+                        <div class="company-details">
+                            <p>{{ job.description }}</p>
+                            <span class="divider"></span>
+                            <p>{{ job.activities }}</p>
+                            <p>{{ job.start_year }} - {{ job.end_year }}</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <h2><i class="fa fa-globe"></i> Idiomas</h2>
+
+                <ul>
+                    <li v-for="language in dev.languages">
+                        <p class="language-name">{{ language.name }}</p>
+                        <span class="divider"></span>
+                        <div class="levels">
+                            <span>Leitura: {{ language_level(language.read) }}</span>
+                            <span>Escrita: {{ language_level(language.write) }}</span>
+                            <span>Escuta: {{ language_level(language.listen) }}</span>
+                            <span>Fala: {{ language_level(language.speak) }}</span>
+                        </div>
+                    </li>
                 </ul>
 
                 <h2><i class="fa fa-wrench"></i> Habilidades técnicas</h2>
@@ -111,7 +150,7 @@
                     <div class="skill-kind" v-for="skill_kind in dev.skills">
                         <p class="skill-kind-description">{{ skill_kind.description }}</p>
                         <div class="skills">
-                            <skill v-for="skill in skill_kind.list" :skill="skill"></skill>
+                            <div v-for="skill in skill_kind.list" class="skill">{{ skill }}</div>
                         </div>
                     </div>
                 </div>
@@ -122,8 +161,37 @@
             <div class="section-wrapper" data-aos="fade-in" data-aos-id="portfolio">
                 <h1>Alguns dos meus projetos</h1>
 
+                <div id="portfolio-filter-div">
+                    <p><label for="tech-filter">Filtrar por tecnologia</label></p>
+
+                    <select name="tech-filter[]" id="tech-filter" class="form-control" v-model="tech_filter" v-select2 multiple>
+                        <option v-for="tech in techs()" :value="tech">{{ tech }}</option>
+                    </select>
+                </div>
+
+                <div class="portfolio-not-found" v-if="portfolio.length === 0">
+                    <p>Nenhum item encontrado.</p>
+                </div>
+
                 <div class="portfolio-items">
-                    <portfolio-item v-for="portfolio_item in dev.portfolio" :portfolio_item="portfolio_item"></portfolio-item>
+                    <a v-for="portfolio_item in portfolio" :href="portfolio_item.url" target="_blank">
+                        <div class="portfolio-item">
+                            <aside class="project-img">
+                                <img :src="portfolio_item.image_url" alt="Project Image">
+                            </aside>
+
+                            <div class="project-info">
+                                <p class="project-name">{{ portfolio_item.name }}</p>
+                                <p class="project-description">{{ portfolio_item.description }}</p>
+                                <div class="techs-div">
+                                    <p>Tecnologias: </p>
+                                    <div class="techs">
+                                        <div class="stack" v-for="tech in portfolio_item.techs">{{ tech }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -181,7 +249,10 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="js/particles.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/pt-BR.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script type="text/javascript" src="https://unpkg.com/aos@next/dist/aos.js"></script>
 

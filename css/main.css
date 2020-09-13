@@ -82,6 +82,40 @@ a:hover {
     color: var(--link-color-hover-alt) !important;
 }
 
+.select2 {
+    width: 100% !important;
+}
+
+.select2-container--default .select2-selection--multiple,
+.select2-dropdown {
+    background-color: var(--input-background-color);
+    border-color: var(--input-border-color);
+    color: var(--text-color);
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: var(--even);
+    color: var(--text-color);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #5897fb;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+    color: var(--text-color);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--even);
+    border-color: var(--input-border-color);
+    color: var(--text-color);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: var(--text-color-hover);
+}
+
 #particles-js {
     position: fixed;
     width: 100%;
@@ -146,6 +180,14 @@ a:hover {
     top: 0;
     z-index: 950;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sidebar a {
+    transition: all 100ms;
+}
+
+.sidebar a.active {
+    color: var(--body-color-alt);
 }
 
 header {
@@ -277,12 +319,12 @@ section h1 {
 }
 
 #dev-info #dev-card #info #basic-info #dev-name {
-    font-size: 18pt;
+    font-size: 20pt;
     font-weight: bold;
 }
 
 #dev-info #dev-card #info #links a {
-    font-size: 16pt;
+    font-size: 18pt;
     margin-right: 4px;
 }
 
@@ -296,6 +338,7 @@ section h1 {
 
 #about p {
     margin-bottom: 32px;
+    text-align: justify;
 }
 
 #about #download-resume-btn {
@@ -331,11 +374,12 @@ section h1 {
 
 #resume ul li:not(:last-child)::before {
     border-left: 2px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to bottom, #784de0, #c65ed6);
+    border-color: var(--bg-gradient-end);
+    /*border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, #784de0, #c65ed6);*/
     content: ' ';
     position: absolute;
-    height: 100%;
+    height: calc(100% - 6px);
     margin-top: 18px;
     margin-left: -17px;
 }
@@ -344,23 +388,26 @@ section h1 {
     margin: 0;
 }
 
-#resume ul li p.school-name {
+#resume ul li p.school-name,
+#resume ul li p.company-name,
+#resume ul li p.language-name {
     font-weight: bold;
 }
 
-#resume ul li .school-details {
+#resume ul li .school-details,
+#resume ul li .company-details,
+#resume ul li .levels {
     font-size: 12pt;
 }
 
-#resume ul li p.company-name {
-    font-weight: bold;
+#resume ul li .levels {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-column-gap: 8px;
+    grid-row-gap: 4px;
 }
 
-#resume ul li .company-details {
-    font-size: 12pt;
-}
-
-#resume ul li .company-details .divider {
+#resume ul li .divider {
     display: block;
     padding: 4px 0;
 }
@@ -412,8 +459,13 @@ section h1 {
     margin: 0;
 }
 
-#portfolio {
+#portfolio #portfolio-filter-div {
+    padding: 0 0 32px 0;
+}
 
+#portfolio #portfolio-filter-div p {
+    margin: 0;
+    font-size: 16pt;
 }
 
 #portfolio .portfolio-items {
@@ -516,8 +568,8 @@ section h1 {
     z-index: 1;
 }
 
-#contact input[type="text"],
-#contact input[type="password"],
+#contact input[type='text'],
+#contact input[type='password'],
 #contact textarea {
     border: 1px solid;
     border-color: var(--input-border-color);
@@ -533,15 +585,15 @@ section h1 {
     resize: none;
 }
 
-#contact input[type="text"]:hover,
-#contact input[type="password"]:hover,
+#contact input[type='text']:hover,
+#contact input[type='password']:hover,
 #contact textarea:hover {
     border-color: var(--input-border-color-hover);
     outline: none;
 }
 
-#contact input[type="text"]:focus,
-#contact input[type="password"]:focus,
+#contact input[type='text']:focus,
+#contact input[type='password']:focus,
 #contact textarea:focus {
     border-color: var(--input-border-color-focus);
     outline: none;
