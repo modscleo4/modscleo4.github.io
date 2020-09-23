@@ -12,28 +12,31 @@
 
     <title>Dhiego Cassiano Fogaça Barbosa</title>
 
-    <!-- Bootstrap 4.3.1 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <!-- Bootstrap 4.5.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"/>
 
-    <!-- Select2 -->
+    <!-- Select2 4.0.13 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
 
     <!-- Font Awesome 4.7.0 -->
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
 
-    <!-- Animate on Scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <!-- Animate on Scroll 2.3.4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/themes/light.css"/>
     <link rel="stylesheet" href="css/themes/dark.css"/>
+
+    <link rel="icon" href="favicon.png"/>
 </head>
 <body>
 <div id="particles-js"></div>
 
 <div id="app">
-    <nav id="sidebar-nav" class="sidebar sidebar-right" :class="{'open': sidebarOpened}">
-        <ul>
+    <nav id="sidebar-nav" class="sidebar sidebar-right center" :class="{'open': sidebarOpened}">
+        <ul @click="sidebarOpened = false">
+            <li style="display: none;"><a href="#dev-info">Dev</a></li>
             <li><a href="#about">Sobre</a></li>
             <li><a href="#resume">Currículo</a></li>
             <li><a href="#portfolio">Portfólio</a></li>
@@ -41,9 +44,10 @@
         </ul>
     </nav>
 
-    <header class="alt-bg">
+    <header class="alt-bg" :class="{'no-bg': sidebarOpened, 'bg-filter': sidebarOpened}">
         <div class="section-wrapper">
             <div class="links">
+                <a style="display: none;" href="#dev-info">Dev</a>
                 <a href="#about">Sobre</a>
                 <a href="#resume">Currículo</a>
                 <a href="#portfolio">Portfólio</a>
@@ -60,143 +64,143 @@
 
     <div v-if="sidebarOpened" class="sidebar-backdrop" @click="sidebarOpened = !sidebarOpened"></div>
 
-    <article>
-        <section id="dev-info" class="alt-bg">
-            <div class="section-wrapper" data-aos="fade-in" data-aos-id="dev-info">
-                <div id="dev-card">
-                    <div id="img">
-                        <img src="res/dev.png" alt="Foto">
+    <section id="dev-info" class="no-bg alt-bg">
+        <div class="section-wrapper" data-aos="fade-in" data-aos-id="dev-info">
+            <div id="dev-card">
+                <div id="img">
+                    <img src="res/dev.png" alt="Foto">
+                </div>
+
+                <div id="info">
+                    <div id="basic-info">
+                        <p id="dev-name">{{ dev.name }}</p>
+                        <p id="dev-title">{{ dev.title }}</p>
                     </div>
 
-                    <div id="info">
-                        <div id="basic-info">
-                            <p id="dev-name">{{ dev.name }}</p>
-                            <p id="dev-title">{{ dev.title }}</p>
-                        </div>
-
-                        <div id="info-social">
-                            <p id="dev-links">
-                                <a :href="`https://github.com/${dev.contact.github}`" target="_blank"><i class="fa fa-github"></i></a>
-                                <a :href="`https://gitlab.com/${dev.contact.gitlab}`" target="_blank"><i class="fa fa-gitlab"></i></a>
-                                <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                <a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank"><i class="fa fa-facebook"></i></a>
-                                <a :href="`https://twitter.com/${dev.contact.twitter}`" target="_blank"><i class="fa fa-twitter"></i></a>
-                                <a :href="`https://www.reddit.com/user/${dev.contact.reddit}`" target="_blank"><i class="fa fa-reddit-alien"></i></a>
-                                <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`" target="_blank"><i class="fa fa-stack-overflow"></i></a>
-                            </p>
-                        </div>
+                    <div id="info-social">
+                        <p id="dev-links">
+                            <a :href="`https://github.com/${dev.contact.github}`" target="_blank"><i class="fa fa-github"></i></a>
+                            <a :href="`https://gitlab.com/${dev.contact.gitlab}`" target="_blank"><i class="fa fa-gitlab"></i></a>
+                            <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a :href="`https://twitter.com/${dev.contact.twitter}`" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a :href="`https://www.reddit.com/user/${dev.contact.reddit}`" target="_blank"><i class="fa fa-reddit-alien"></i></a>
+                            <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`" target="_blank"><i class="fa fa-stack-overflow"></i></a>
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about">
-            <div class="section-wrapper" data-aos="fade-in" data-aos-id="about">
-                <h2>Olá</h2>
-                <p>{{ dev.brief }}</p>
+    <section id="about">
+        <div class="section-wrapper" data-aos="fade-in" data-aos-id="about">
+            <h1>Olá</h1>
+            <p>{{ dev.brief }}</p>
 
-                <a id="download-resume-btn" href="res/resume.pdf" target="_blank"><i class="fa fa-download"></i> Baixar currículo</a>
-            </div>
-        </section>
+            <a id="download-resume-btn" href="res/resume.pdf" target="_blank"><i class="fa fa-download"></i> Baixar currículo</a>
+        </div>
+    </section>
 
-        <section id="resume">
-            <div class="section-wrapper" data-aos="fade-in" data-aos-id="resume">
-                <h1>Currículo</h1>
+    <section id="resume">
+        <div class="section-wrapper" data-aos="fade-in" data-aos-id="resume">
+            <h1>Currículo</h1>
 
-                <h2><i class="fa fa-graduation-cap"></i> Formação acadêmica</h2>
+            <h2><i class="fa fa-graduation-cap"></i> Formação acadêmica</h2>
 
-                <ul>
-                    <li v-for="education in dev.resume.formation">
-                        <p class="school-name">{{ education.school_name }}</p>
-                        <div class="school-details">
-                            <p>{{ education.course }}</p>
-                            <p>{{ education.start_year }} - {{ education.end_year }}</p>
-                        </div>
-                    </li>
-                </ul>
+            <ul>
+                <li v-for="education in dev.resume.formation">
+                    <p class="school-name">{{ education.school_name }}</p>
+                    <div class="school-details">
+                        <p>{{ education.course }}</p>
+                        <p>{{ education.start_year }} - {{ education.end_year }}</p>
+                    </div>
+                </li>
+            </ul>
 
-                <h2><i class="fa fa-briefcase"></i> Experiência profissional</h2>
+            <h2><i class="fa fa-briefcase"></i> Experiência profissional</h2>
 
-                <ul>
-                    <li v-for="job in dev.resume.experience">
-                        <p class="company-name">{{ job.company_name }}</p>
-                        <div class="company-details">
-                            <p>{{ job.description }}</p>
-                            <span class="divider"></span>
-                            <p>{{ job.activities }}</p>
-                            <p>{{ job.start_year }} - {{ job.end_year }}</p>
-                        </div>
-                    </li>
-                </ul>
-
-                <h2><i class="fa fa-globe"></i> Idiomas</h2>
-
-                <ul>
-                    <li v-for="language in dev.languages">
-                        <p class="language-name">{{ language.name }}</p>
+            <ul>
+                <li v-for="job in dev.resume.experience">
+                    <p class="company-name">{{ job.company_name }}</p>
+                    <div class="company-details">
+                        <p>{{ job.description }}</p>
                         <span class="divider"></span>
-                        <div class="levels">
-                            <span>Leitura: {{ language_level(language.read) }}</span>
-                            <span>Escrita: {{ language_level(language.write) }}</span>
-                            <span>Escuta: {{ language_level(language.listen) }}</span>
-                            <span>Fala: {{ language_level(language.speak) }}</span>
-                        </div>
-                    </li>
-                </ul>
+                        <p>{{ job.activities }}</p>
+                        <p>{{ job.start_year }} - {{ job.end_year }}</p>
+                    </div>
+                </li>
+            </ul>
 
-                <h2><i class="fa fa-wrench"></i> Habilidades técnicas</h2>
+            <h2><i class="fa fa-globe"></i> Idiomas</h2>
 
-                <div id="skills">
-                    <div class="skill-kind" v-for="skill_kind in dev.skills">
-                        <p class="skill-kind-description">{{ skill_kind.description }}</p>
-                        <div class="skills">
-                            <div v-for="skill in skill_kind.list" class="skill">{{ skill }}</div>
-                        </div>
+            <ul>
+                <li v-for="language in dev.languages">
+                    <p class="language-name">{{ language.name }}</p>
+                    <span class="divider"></span>
+                    <div class="levels">
+                        <span>Leitura: {{ language_level(language.read) }}</span>
+                        <span>Escrita: {{ language_level(language.write) }}</span>
+                        <span>Escuta: {{ language_level(language.listen) }}</span>
+                        <span>Fala: {{ language_level(language.speak) }}</span>
+                    </div>
+                </li>
+            </ul>
+
+            <h2><i class="fa fa-wrench"></i> Habilidades técnicas</h2>
+
+            <div id="skills">
+                <div class="skill-kind" v-for="skill_kind in dev.skills">
+                    <p class="skill-kind-description">{{ skill_kind.description }}</p>
+                    <div class="skills">
+                        <div v-for="skill in skill_kind.list" class="skill">{{ skill }}</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="portfolio">
-            <div class="section-wrapper" data-aos="fade-in" data-aos-id="portfolio">
-                <h1>Alguns dos meus projetos</h1>
+    <section id="portfolio">
+        <div class="section-wrapper" data-aos="fade-in" data-aos-id="portfolio">
+            <h1>Alguns dos meus projetos</h1>
 
-                <div id="portfolio-filter-div">
-                    <p><label for="tech-filter">Filtrar por tecnologia</label></p>
+            <div id="portfolio-filter-div">
+                <p><label for="tech-filter">Filtrar por tecnologia</label></p>
 
-                    <select name="tech-filter[]" id="tech-filter" class="form-control" v-model="tech_filter" v-select2 multiple>
-                        <option v-for="tech in techs()" :value="tech">{{ tech }}</option>
-                    </select>
-                </div>
+                <select name="tech-filter[]" id="tech-filter" class="form-control" v-model="tech_filter" v-select2 multiple>
+                    <option v-for="tech in techs()" :value="tech">{{ tech }}</option>
+                </select>
+            </div>
 
-                <div class="portfolio-not-found" v-if="portfolio.length === 0">
-                    <p>Nenhum item encontrado.</p>
-                </div>
+            <div class="portfolio-not-found" v-if="portfolio.length === 0">
+                <p>Nenhum item encontrado.</p>
+            </div>
 
-                <div class="portfolio-items">
-                    <a v-for="portfolio_item in portfolio" :href="portfolio_item.url" target="_blank">
-                        <div class="portfolio-item">
-                            <aside class="project-img">
-                                <img :src="portfolio_item.image_url" alt="Project Image">
-                            </aside>
+            <div class="portfolio-items">
+                <a v-for="portfolio_item in portfolio" :href="portfolio_item.url" target="_blank">
+                    <div class="portfolio-item">
+                        <aside class="project-img">
+                            <img :src="portfolio_item.image_url" alt="Project Image">
+                        </aside>
 
-                            <div class="project-info">
-                                <p class="project-name">{{ portfolio_item.name }}</p>
-                                <p class="project-description">{{ portfolio_item.description }}</p>
-                                <div class="techs-div">
-                                    <p>Tecnologias: </p>
-                                    <div class="techs">
-                                        <div class="stack" v-for="tech in portfolio_item.techs">{{ tech }}</div>
-                                    </div>
+                        <div class="project-info">
+                            <p class="project-name">{{ portfolio_item.name }}</p>
+                            <p class="project-description">{{ portfolio_item.description }}</p>
+                            <div class="techs-div">
+                                <p>Tecnologias: </p>
+                                <div class="techs">
+                                    <div class="stack" v-for="tech in portfolio_item.techs">{{ tech }}</div>
                                 </div>
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="alt-bg">
+    <footer class="alt-bg">
+        <section id="contact" class="no-bg">
             <div class="section-wrapper" data-aos="fade-in" data-aos-id="contact">
                 <div id="contact-content">
                     <h1>Entre em contato</h1>
@@ -221,15 +225,20 @@
                         </aside>
 
                         <div id="email-form">
-                            <form :action="`mailto:${dev.contact.email}`" method="get" enctype="text/plain">
+                            <form action="https://formspree.io/modscleo4@outlook.com" method="post">
                                 <div class="form-group">
-                                    <label for="input_subject">Assunto</label>
-                                    <input class="input-group" type="text" name="subject" id="input_subject" placeholder="">
+                                    <label for="input_name">Seu nome</label>
+                                    <input class="input-group" type="text" name="name" id="input_name" placeholder="Nome">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input_email">Seu email</label>
+                                    <input class="input-group" type="email" name="_replyto" id="input_email" placeholder="E-mail">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="input_message">Mensagem</label>
-                                    <textarea class="input-group" name="body" id="input_message" cols="30" rows="9" placeholder=""></textarea>
+                                    <textarea class="input-group" name="body" id="input_message" cols="30" rows="9" placeholder="Mensagem"></textarea>
                                 </div>
 
                                 <input id="form-send-btn" type="submit" value="Enviar">
@@ -239,24 +248,22 @@
                 </div>
             </div>
         </section>
-    </article>
 
-    <footer class="alt-bg">
         <p>© 2020 {{ dev.name }} - Powered by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
     </footer>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/pt-BR.min.js"></script>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
-<script type="text/javascript" src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
 
 <script type="text/javascript" src="js/main.js"></script>
 </body>

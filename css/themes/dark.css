@@ -19,9 +19,9 @@
         --link-color-hover-alt: rgb(153, 138, 208);
 
         --input-background-color: rgb(62, 62, 62);
-        --input-border-color: rgb(88, 88, 88);
-        --input-border-color-hover: rgb(60, 60, 60);
-        --input-border-color-focus: rgb(50, 50, 50);
+        --input-border-color: rgb(50, 50, 50);
+        --input-border-color-hover: rgb(70, 70, 70);
+        --input-border-color-focus: rgb(60, 60, 60);
 
         --btn-text-color: rgb(231, 231, 231);
         --btn-background-color: rgb(65, 48, 158);

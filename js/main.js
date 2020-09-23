@@ -1,3 +1,5 @@
+'use strict';
+
 particlesJS.load('particles-js', 'js/particles.json', () => {
     console.log('callback - particles.js config loaded');
 });
@@ -13,32 +15,25 @@ Vue.directive('select2', {
     },
 });
 
-window.addEventListener('scroll', e => {
+window.addEventListener('scroll', () => {
     ['dev-info', 'about', 'resume', 'portfolio', 'contact'].forEach((section, i, a) => {
         const target = document.querySelector(`section#${section}`);
         if (window.scrollY > (target.offsetTop - 32)) {
-            a.filter(s => document.querySelector(`header a[href="#${s}"]`)).forEach(s => {
+            a.forEach(s => {
                 document.querySelector(`header a[href="#${s}"]`).classList.remove('active');
                 document.querySelector(`nav a[href="#${s}"]`).classList.remove('active');
             });
 
-            if (document.querySelector(`header a[href="#${section}"]`)) {
-                document.querySelector('header').classList.remove('alt-bg');
-                document.querySelector(`header a[href="#${section}"]`).classList.add('active');
-                document.querySelector(`nav a[href="#${section}"]`).classList.add('active');
-            }
+            document.querySelector('header').classList.remove('alt-bg');
+            document.querySelector(`header a[href="#${section}"]`).classList.add('active');
+            document.querySelector(`nav a[href="#${section}"]`).classList.add('active');
 
-            if (['dev-info', 'contact'].includes(section)) {
+            if (target.classList.contains('no-bg')) {
                 document.querySelector('header').classList.add('alt-bg');
             }
         }
     });
 });
-
-function formatPhone(phone) {
-    const {CountryCode, DDD, P1, P2} = /(?<CountryCode>[\d]{2})(?<DDD>[\d]{2})9(?<P1>[\d]{4})(?<P2>[\d]{4})/gm.exec(phone).groups;
-    return `+${CountryCode} (${DDD}) 9${P1}-${P2}`;
-}
 
 const app = new Vue({
     el: '#app',
@@ -173,7 +168,7 @@ const app = new Vue({
                     description: 'A website with a Kana (Hiragana and Katakana) list.',
                     techs: ['HTML', 'CSS', 'JS', 'Fetch API', 'CSS Grid', 'Vue.js'],
                 },
-            ]
+            ],
         },
     },
 
@@ -194,7 +189,12 @@ const app = new Vue({
 
         language_level: function (i) {
             return ['Básico', 'Intermediário', 'Avançado', 'Fluente'][i];
-        }
+        },
+
+        formatPhone: function (phone) {
+            const {CountryCode, DDD, P1, P2} = /(?<CountryCode>[\d]{2})(?<DDD>[\d]{2})9(?<P1>[\d]{4})(?<P2>[\d]{4})/gm.exec(phone).groups;
+            return `+${CountryCode} (${DDD}) 9${P1}-${P2}`;
+        },
     },
 });
 
@@ -219,6 +219,6 @@ AOS.init({
     duration: 400,
     easing: 'ease',
     once: false,
-    mirror: false,
+    mirror: true,
     anchorPlacement: 'top-bottom',
 });
