@@ -133,7 +133,7 @@ a:hover {
     left: 0;
     height: 100%;
     width: 0;
-    z-index: 1100;
+    z-index: 1000;
     background: none;
     transition: width 100ms;
 }
@@ -312,7 +312,6 @@ section h1 {
 }
 
 #dev-info #dev-card #info p {
-    font-family: 'Source Code Pro', monospace;
     margin-bottom: 0;
 }
 
@@ -321,6 +320,7 @@ section h1 {
 }
 
 #dev-info #dev-card #info #basic-info #dev-name {
+    font-family: 'Source Code Pro', monospace;
     font-size: 20pt;
     font-weight: bold;
 }
@@ -330,8 +330,12 @@ section h1 {
     margin-right: 4px;
 }
 
-#dev-info #dev-card #info #info-social #dev-links a {
-    padding-right: 4px;
+#dev-info #dev-card #info #dev-links {
+    display: grid;
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    grid-column-gap: 8px;
+    justify-content: center;
 }
 
 #about p {
@@ -643,10 +647,6 @@ footer p {
         grid-auto-flow: column;
         grid-template-rows: auto auto;
         grid-row-gap: 32px;
-    }
-
-    .sidebar {
-        margin-top: 75px;
     }
 
     header {

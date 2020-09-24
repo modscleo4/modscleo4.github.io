@@ -4,17 +4,6 @@ particlesJS.load('particles-js', 'js/particles.json', () => {
     console.log('callback - particles.js config loaded');
 });
 
-Vue.directive('select2', {
-    twoWay: true,
-    bind: function (el, binding, vnode) {
-        function handler(e) {
-            el.dispatchEvent(new Event('change', {target: e.target}));
-        }
-
-        jQuery(el).select2().on('select2:select', handler).on('select2:unselect', handler);
-    },
-});
-
 window.addEventListener('scroll', () => {
     ['dev-info', 'about', 'resume', 'portfolio', 'contact'].forEach((section, i, a) => {
         const target = document.querySelector(`section#${section}`);
@@ -35,9 +24,8 @@ window.addEventListener('scroll', () => {
     });
 });
 
-const app = new Vue({
-    el: '#app',
-    data: {
+const app = Vue.createApp({
+    data: () => ({
         sidebarOpened: false,
         tech_filter: [],
         dev: {
@@ -170,7 +158,7 @@ const app = new Vue({
                 },
             ],
         },
-    },
+    }),
 
     computed: {
         portfolio: function () {
@@ -196,7 +184,16 @@ const app = new Vue({
             return `+${CountryCode} (${DDD}) 9${P1}-${P2}`;
         },
     },
-});
+}).directive('select2', {
+    twoWay: true,
+    beforeMount: function (el, binding, vnode) {
+        function handler(e) {
+            el.dispatchEvent(new Event('change', {target: e.target}));
+        }
+
+        jQuery(el).select2().on('select2:select', handler).on('select2:unselect', handler);
+    },
+}).mount('#app');
 
 window.addEventListener('DOMContentLoaded', () => {
     jQuery('#tech-filter').select2({
