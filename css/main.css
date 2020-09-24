@@ -115,9 +115,7 @@ a:hover {
     height: 100%;
     background-size: cover;
     background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%) no-repeat 50% 50%;
-    opacity: 1;
-    filter: blur(1px);
-    transform: scale(1.1);
+    /*filter: blur(1px);*/
 }
 
 #app {
@@ -184,7 +182,7 @@ a:hover {
     top: 0;
     z-index: 950;
     background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(2px);
+    /*backdrop-filter: blur(2px);*/
 }
 
 .sidebar a {
@@ -201,7 +199,6 @@ header {
     font-size: 14pt;
     padding: 16px 0;
     position: fixed;
-    opacity: 1;
     background: var(--background-color);
     z-index: 1000;
     color: var(--text-color);
@@ -620,7 +617,7 @@ footer {
 footer p {
     text-align: center;
     font-size: 11pt;
-    padding: 8px 0;
+    padding: 8px 32px;
     margin: 0;
 }
 
