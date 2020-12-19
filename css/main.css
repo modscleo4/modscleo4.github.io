@@ -32,25 +32,25 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3b3b3b;
+    background-color: var(--scrollbar-thumb);
     border: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #262626;
+    background-color: var(--scrollbar-thumb-hover);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: #161616;
+    background-color: var(--scrollbar-thumb-active);
 }
 
 ::-webkit-scrollbar-track {
-    background: #b5b5b5;
+    background-color: var(--scrollbar-track);
     border: none;
 }
 
 ::-webkit-scrollbar-corner {
-    background: transparent;
+    background-color: transparent;
 }
 
 a {
@@ -450,7 +450,6 @@ section h1 {
 #portfolio .portfolio-item .project-info .techs .stack:hover {
     background: var(--btn-background-color);
     color: var(--text-color-alt);
-    cursor: pointer;
 }
 
 #resume #skills .skill p {

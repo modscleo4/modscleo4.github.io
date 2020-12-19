@@ -63,6 +63,14 @@ const app = Vue.createApp({
 
                 experience: [
                     {
+                        company_name: 'DSIN Tecnologia da Informação LTDA',
+                        description: 'Estagiário',
+                        activities: 'Desenvolvimento de rotinas de acordo com o requisito, planejamento ou solicitação conforme os padrões exigidos pela empresa',
+                        start_year: 2021,
+                        end_year: null,
+                    },
+
+                    {
                         company_name: 'Universidade Estadual Paulista “Júlio de Mesquita Filho”',
                         description: 'Estagiário',
                         activities: 'Gerenciei redes Linux usando o protocolo LDAP, além de dar manutenção aos computadores.',
@@ -113,7 +121,7 @@ const app = Vue.createApp({
                     read: 2,
                     write: 2,
                     listen: 2,
-                    speak: 2,
+                    speak: 1,
                 },
 
                 {
@@ -156,12 +164,36 @@ const app = Vue.createApp({
                     description: 'A website with a Kana (Hiragana and Katakana) list.',
                     techs: ['HTML', 'CSS', 'JS', 'Fetch API', 'CSS Grid', 'Vue.js'],
                 },
+
+                {
+                    url: 'https://modscleo4.github.io/kanji-list',
+                    image_url: 'res/project-5.png',
+                    name: 'Kanji List',
+                    description: 'A website with a Kanji list with kunyomi and onyomi pronunciations.',
+                    techs: ['HTML', 'CSS', 'JS', 'Fetch API', 'CSS Grid', 'Vue.js'],
+                },
+
+                {
+                    url: 'https://modscleo4.github.io/truthtable',
+                    image_url: 'res/project-6.png',
+                    name: 'Truth Table generator',
+                    description: 'Truth Table generator written in Vue',
+                    techs: ['HTML', 'CSS', 'JS', 'CSS Flexbox', 'Vue.js'],
+                },
+
+                {
+                    url: 'https://modscleo4.github.io/minesweeper',
+                    image_url: 'res/project-7.png',
+                    name: 'Minesweeper.js',
+                    description: 'Minesweeper.js (with dark theme!)',
+                    techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
+                },
             ],
         },
     }),
 
     computed: {
-        portfolio: function () {
+        portfolio() {
             if (this.tech_filter.length === 0) {
                 return this.dev.portfolio;
             }
@@ -171,22 +203,27 @@ const app = Vue.createApp({
     },
 
     methods: {
-        techs: function () {
+        techs() {
             return this.dev.skills.reduce((a, s) => a.concat(s.list), []);
         },
 
-        language_level: function (i) {
+        language_level(i) {
             return ['Básico', 'Intermediário', 'Avançado', 'Fluente'][i];
         },
 
-        formatPhone: function (phone) {
-            const {CountryCode, DDD, P1, P2} = /(?<CountryCode>[\d]{2})(?<DDD>[\d]{2})9(?<P1>[\d]{4})(?<P2>[\d]{4})/gm.exec(phone).groups;
+        formatPhone(phone) {
+            const {
+                CountryCode,
+                DDD,
+                P1,
+                P2
+            } = /(?<CountryCode>[\d]{2})(?<DDD>[\d]{2})9(?<P1>[\d]{4})(?<P2>[\d]{4})/gm.exec(phone).groups;
             return `+${CountryCode} (${DDD}) 9${P1}-${P2}`;
         },
     },
 }).directive('select2', {
     twoWay: true,
-    beforeMount: function (el, binding, vnode) {
+    beforeMount(el, binding, vnode) {
         function handler(e) {
             el.dispatchEvent(new Event('change', {target: e.target}));
         }

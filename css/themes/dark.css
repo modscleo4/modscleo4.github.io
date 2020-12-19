@@ -29,5 +29,10 @@
 
         --odd: rgb(28, 28, 28);
         --even: rgb(44, 44, 44);
+
+        --scrollbar-thumb: rgb(112, 112, 112);
+        --scrollbar-thumb-hover: rgb(138, 138, 138);
+        --scrollbar-thumb-active: rgb(165, 165, 165);
+        --scrollbar-track: rgb(50, 50, 50);
     }
 }
