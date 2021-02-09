@@ -1,5 +1,7 @@
 'use strict';
 
+import * as Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.esm-browser.prod.js';
+
 particlesJS.load('particles-js', 'js/particles.json', () => {
     console.log('callback - particles.js config loaded');
 });
@@ -107,7 +109,7 @@ const app = Vue.createApp({
 
                 {
                     description: 'Tecnologias',
-                    list: ['Node.js', 'WebSocket', 'Fetch API', 'CSS Grid', 'CSS Flexbox'],
+                    list: ['Node.js', 'WebSocket', 'Fetch API', 'CSS Grid', 'CSS Flexbox',],
                 },
 
                 {
@@ -186,6 +188,14 @@ const app = Vue.createApp({
                     image_url: 'res/project-7.png',
                     name: 'Minesweeper.js',
                     description: 'Minesweeper.js (with dark theme!)',
+                    techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
+                },
+
+                {
+                    url: 'https://modscleo4.github.io/chess',
+                    image_url: 'res/project-8.png',
+                    name: 'Chess.js',
+                    description: 'Chess.js (with online)',
                     techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
                 },
             ],
