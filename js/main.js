@@ -192,7 +192,7 @@ const app = Vue.createApp({
                 },
 
                 {
-                    url: 'https://modscleo4.github.io/chess',
+                    url: 'https://chessjs-web.herokuapp.com',
                     image_url: 'res/project-8.png',
                     name: 'Chess.js',
                     description: 'Chess.js (with online)',
