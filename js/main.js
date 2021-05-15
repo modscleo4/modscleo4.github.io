@@ -9,18 +9,47 @@ particlesJS.load('particles-js', 'js/particles.json', () => {
 window.addEventListener('scroll', () => {
     ['dev-info', 'about', 'resume', 'portfolio', 'contact'].forEach((section, i, a) => {
         const target = document.querySelector(`section#${section}`);
-        if (window.scrollY > (target.offsetTop - 32)) {
+        if (target?.getBoundingClientRect().top < 32 && target?.getBoundingClientRect().bottom >= 0) {
             a.forEach(s => {
-                document.querySelector(`header a[href="#${s}"]`).classList.remove('active');
-                document.querySelector(`nav a[href="#${s}"]`).classList.remove('active');
+                document.querySelector(`header a[href="#${s}"]`)?.classList.remove('active');
+                document.querySelector(`nav a[href="#${s}"]`)?.classList.remove('active');
             });
 
-            document.querySelector('header').classList.remove('alt-bg');
-            document.querySelector(`header a[href="#${section}"]`).classList.add('active');
-            document.querySelector(`nav a[href="#${section}"]`).classList.add('active');
+            document.querySelector('header')?.classList.remove('alt-bg');
+            document.querySelector(`header a[href="#${section}"]`)?.classList.add('active');
+            document.querySelector(`nav a[href="#${section}"]`)?.classList.add('active');
 
-            if (target.classList.contains('no-bg')) {
-                document.querySelector('header').classList.add('alt-bg');
+            if (target?.classList.contains('no-bg')) {
+                document.querySelector('header')?.classList.add('alt-bg');
+            }
+
+            if (section === 'resume') {
+                document.querySelector(`header a[href="#resume"]`)?.parentElement?.querySelector(`.sublinks`)?.classList.add('visible');
+            } else {
+                document.querySelector(`header a[href="#resume"]`)?.parentElement?.querySelector(`.sublinks`)?.classList.remove('visible');
+                ['formation', 'experience', 'languages', 'skills'].forEach(s => {
+                    //console.log(document.querySelector(`header a[href="#${s}"]`)?.classList);
+                    document.querySelector(`header a[href="#${s}"]`)?.classList.remove('active');
+                    //document.querySelector(`nav a[href="#${s}"]`).classList.remove('active');
+                });
+            }
+        }
+    });
+
+    ['formation', 'experience', 'languages', 'skills'].forEach((section, i, a) => {
+        const target = document.querySelector(`section#${section}`);
+        if (target?.getBoundingClientRect().top < 32 && target?.getBoundingClientRect().bottom >= 0) {
+            a.forEach(s => {
+                document.querySelector(`header a[href="#${s}"]`)?.classList.remove('active');
+                //document.querySelector(`nav a[href="#${s}"]`).classList.remove('active');
+            });
+
+            document.querySelector('header')?.classList.remove('alt-bg');
+            document.querySelector(`header a[href="#${section}"]`)?.classList.add('active');
+            //document.querySelector(`nav a[href="#${section}"]`).classList.add('active');
+
+            if (target?.classList.contains('no-bg')) {
+                document.querySelector('header')?.classList.add('alt-bg');
             }
         }
     });
@@ -197,6 +226,14 @@ const app = Vue.createApp({
                     name: 'Chess.js',
                     description: 'Chess.js (with online)',
                     techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
+                },
+
+                {
+                    url: 'https://modscleo4.github.io/passwordgen',
+                    image_url: 'res/project-9.png',
+                    name: 'Password Generator',
+                    description: 'A Simple Password Generator',
+                    techs: ['HTML', 'CSS', 'JS', 'Web Crypto', 'Vue.js'],
                 },
             ],
         },

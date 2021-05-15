@@ -213,14 +213,41 @@ header.alt-bg {
 }
 
 header .links,
+header .links .sublinks,
 header .sidebar-button {
     width: max-content;
-    display: inline;
+    display: inline-flex;
+    padding: 0;
+    list-style: none;
+    gap: 12px;
+}
+
+header .links .sublinks {
+    background-color: rgba(0, 0, 0, 0.945);
+    border-radius: 50px;
+    max-width: 0;
+    height: min-content;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 100ms;
+}
+
+header .links .sublinks.visible {
+    max-width: 1000px;
+    margin-left: 6px;
+    padding: 0 4px;
+}
+
+header .links li,
+header .links .sublinks li {
+    display: inline-flex;
+    justify-content: flex-start;
+    width: min-content;
+    /* gap: 12px; */
 }
 
 header a {
     transition: all 100ms;
-    margin-right: 24px;
 }
 
 header a:hover {
@@ -267,6 +294,12 @@ section {
     background: var(--background-color);
     display: flex;
     justify-content: center;
+}
+
+section section {
+    padding: unset;
+    background: unset;
+    display: unset;
 }
 
 .no-bg {
@@ -407,25 +440,25 @@ section h1 {
     padding: 4px 0;
 }
 
-#resume #skills {
+#resume #div-skills {
     display: grid;
     grid-template-rows: auto;
     grid-auto-flow: row;
     grid-row-gap: 24px;
 }
 
-#resume #skills .skill-kind {
+#resume #div-skills .skill-kind {
     display: grid;
     grid-template-rows: auto;
     grid-auto-flow: row;
     grid-row-gap: 4px;
 }
 
-#resume #skills .skill-kind .skill-kind-description {
+#resume #div-skills .skill-kind .skill-kind-description {
     margin: 0;
 }
 
-#resume #skills .skill-kind .skills,
+#resume #div-skills .skill-kind .skills,
 #portfolio .portfolio-item .project-info .techs {
     display: flex;
     flex-direction: row;
@@ -436,7 +469,7 @@ section h1 {
     margin: 0 -4px;
 }
 
-#resume #skills .skill-kind .skills .skill,
+#resume #div-skills .skill-kind .skills .skill,
 #portfolio .portfolio-item .project-info .techs .stack {
     border-radius: 4px;
     border: #777777 solid 1px;
@@ -446,13 +479,13 @@ section h1 {
     margin: 4px;
 }
 
-#resume #skills .skill-kind .skills .skill:hover,
+#resume #div-skills .skill-kind .skills .skill:hover,
 #portfolio .portfolio-item .project-info .techs .stack:hover {
     background: var(--btn-background-color);
     color: var(--text-color-alt);
 }
 
-#resume #skills .skill p {
+#resume #div-skills .skill p {
     margin: 0;
 }
 
