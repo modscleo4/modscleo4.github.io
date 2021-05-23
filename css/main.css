@@ -223,7 +223,7 @@ header .sidebar-button {
 }
 
 header .links .sublinks {
-    background-color: rgba(0, 0, 0, 0.945);
+    background-color: var(--card-color);
     border-radius: 50px;
     max-width: 0;
     height: min-content;
@@ -289,7 +289,7 @@ header .sidebar-button button:hover {
 
 section {
     width: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.03125);
+    border-top: 1px solid rgba(0, 0, 0, 0);
     padding: 64px 0 32px;
     background: var(--background-color);
     display: flex;
@@ -555,7 +555,7 @@ section h1 {
 }
 
 footer {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0);
 }
 
 #contact {
