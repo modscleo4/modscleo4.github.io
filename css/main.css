@@ -361,11 +361,39 @@ section h1 {
 }
 
 #dev-info #dev-card #info #dev-links {
-    display: grid;
-    grid-template-rows: auto;
-    grid-auto-flow: column;
-    grid-column-gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
     justify-content: center;
+}
+
+#dev-info #dev-card #info #dev-links .link:not(:first-child)::before {
+    content: '•';
+    padding: 12px;
+}
+
+#dev-info #dev-card #info #dev-links .link a {
+    padding: 4px;
+    border-radius: 20px;
+}
+
+#dev-info #dev-card #info #dev-links .link a:hover {
+    background-color: var(--card-color);
+}
+
+#dev-info #dev-card #info #dev-links .link .description {
+    display: inline-flex;
+    max-width: 0;
+    height: min-content;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 100ms;
+}
+
+#dev-info #dev-card #info #dev-links .link:hover .description {
+    max-width: unset;
+    padding-left: 4px;
 }
 
 #about p {

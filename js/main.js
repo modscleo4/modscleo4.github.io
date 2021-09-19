@@ -113,12 +113,12 @@ const app = Vue.createApp({
             skills: [
                 {
                     description: 'Linguagens',
-                    list: ['C', 'C++', 'C#', 'PHP', 'Java', 'HTML', 'CSS', 'JS', 'Python', 'SQL',],
+                    list: ['C', 'C++', 'C#', 'PHP', 'Java', 'HTML', 'CSS', 'JS', 'Python', 'SQL', 'Delphi',],
                 },
 
                 {
                     description: 'Bancos de Dados',
-                    list: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB',],
+                    list: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB', 'Firebird',],
                 },
 
                 {
@@ -128,7 +128,7 @@ const app = Vue.createApp({
 
                 {
                     description: 'Ferramentas',
-                    list: ['Git', 'GitHub',],
+                    list: ['Git', 'GitHub', 'GitLab', 'Jira', 'VS Code',],
                 },
 
                 {

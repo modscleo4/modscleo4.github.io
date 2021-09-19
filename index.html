@@ -103,22 +103,50 @@
                             <p id="dev-title">{{ dev.title }}</p>
                         </div>
 
-                        <div id="dev-links">
-                            <a :href="`https://github.com/${dev.contact.github}`" target="_blank"><i
-                                   class="fa fa-github"></i></a>
-                            <a :href="`https://gitlab.com/${dev.contact.gitlab}`" target="_blank"><i
-                                   class="fa fa-gitlab"></i></a>
-                            <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`" target="_blank"><i
-                                   class="fa fa-linkedin"></i></a>
-                            <a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank"><i
-                                   class="fa fa-facebook"></i></a>
-                            <a :href="`https://twitter.com/${dev.contact.twitter}`" target="_blank"><i
-                                   class="fa fa-twitter"></i></a>
-                            <a :href="`https://www.reddit.com/user/${dev.contact.reddit}`" target="_blank"><i
-                                   class="fa fa-reddit-alien"></i></a>
-                            <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`"
-                               target="_blank"><i class="fa fa-stack-overflow"></i></a>
-                        </div>
+                        <ul id="dev-links">
+                            <li class="link">
+                                <a :href="`https://github.com/${dev.contact.github}`" target="_blank"><i
+                                       class="fa fa-github"></i>
+                                    <span class="description">GitHub</span>
+                                </a>
+                            </li>
+                            <li class="link">
+                                <a :href="`https://gitlab.com/${dev.contact.gitlab}`" target="_blank"><i
+                                       class="fa fa-gitlab"></i>
+                                    <span class="description">GitLab</span>
+                                </a>
+                            </li>
+                            <li class="link">
+                                <a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`" target="_blank"><i
+                                       class="fa fa-linkedin"></i>
+                                    <span class="description">LinkedIn</span>
+                                </a>
+                            </li>
+                            <li class="link">
+                                <a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank"><i
+                                       class="fa fa-facebook"></i>
+                                    <span class="description">Facebook</span>
+                                </a>
+                            </li>
+                            <li class="link">
+                                <a :href="`https://twitter.com/${dev.contact.twitter}`" target="_blank"><i
+                                       class="fa fa-twitter"></i>
+                                    <span class="description">Twitter</span>
+                                </a>
+                            </li>
+                            <li class="link">
+                                <a :href="`https://www.reddit.com/user/${dev.contact.reddit}`" target="_blank"><i
+                                       class="fa fa-reddit-alien"></i>
+                                    <span class="description">Reddit</span>
+                                </a>
+                            </li>
+                            <li class="link">
+                                <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`"
+                                   target="_blank"><i class="fa fa-stack-overflow"></i>
+                                    <span class="description">Stack Overflow</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
