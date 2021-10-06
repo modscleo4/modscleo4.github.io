@@ -419,9 +419,24 @@ section h1 {
     padding: 16px 0;
 }
 
+#resume ul {
+    list-style: none;
+}
+
 #resume ul li {
     padding-bottom: 8px;
     position: relative;
+}
+
+#resume ul li::after {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -20px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color-hover);
+    border-radius: 50px;
 }
 
 #resume ul li:not(:last-child)::before {
