@@ -189,7 +189,7 @@ const app = Vue.createApp({
                 },
 
                 {
-                    url: 'https://modscleo4.github.io/kana-list',
+                    url: 'https://modscleo4.dev.br/kana-list',
                     image_url: 'res/project-4.png',
                     name: 'Kana List',
                     description: 'A website with a Kana (Hiragana and Katakana) list.',
@@ -197,7 +197,7 @@ const app = Vue.createApp({
                 },
 
                 {
-                    url: 'https://modscleo4.github.io/kanji-list',
+                    url: 'https://modscleo4.dev.br/kanji-list',
                     image_url: 'res/project-5.png',
                     name: 'Kanji List',
                     description: 'A website with a Kanji list with kunyomi and onyomi pronunciations.',
@@ -205,7 +205,7 @@ const app = Vue.createApp({
                 },
 
                 {
-                    url: 'https://modscleo4.github.io/truthtable',
+                    url: 'https://modscleo4.dev.br/truthtable',
                     image_url: 'res/project-6.png',
                     name: 'Truth Table generator',
                     description: 'Truth Table generator written in Vue',
@@ -213,7 +213,7 @@ const app = Vue.createApp({
                 },
 
                 {
-                    url: 'https://modscleo4.github.io/minesweeper',
+                    url: 'https://modscleo4.dev.br/minesweeper',
                     image_url: 'res/project-7.png',
                     name: 'Minesweeper.js',
                     description: 'Minesweeper.js (with dark theme!)',
@@ -221,7 +221,7 @@ const app = Vue.createApp({
                 },
 
                 {
-                    url: 'https://chessjs-web.herokuapp.com',
+                    url: 'https://chess.modscleo4.dev.br',
                     image_url: 'res/project-8.png',
                     name: 'Chess.js',
                     description: 'Chess.js (with online)',
@@ -229,7 +229,7 @@ const app = Vue.createApp({
                 },
 
                 {
-                    url: 'https://modscleo4.github.io/passwordgen',
+                    url: 'https://modscleo4.dev.br/passwordgen',
                     image_url: 'res/project-9.png',
                     name: 'Password Generator',
                     description: 'A Simple Password Generator',
