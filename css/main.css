@@ -490,6 +490,10 @@ section h1 {
     grid-row-gap: 24px;
 }
 
+#resume #div-skills .skill.skill-main {
+    background-color: var(--btn-background-color);
+}
+
 #resume #div-skills .skill-kind {
     display: grid;
     grid-template-rows: auto;
@@ -524,7 +528,7 @@ section h1 {
 
 #resume #div-skills .skill-kind .skills .skill:hover,
 #portfolio .portfolio-item .project-info .techs .stack:hover {
-    background: var(--btn-background-color);
+    background: var(--btn-background-color-hover);
     color: var(--text-color-alt);
 }
 

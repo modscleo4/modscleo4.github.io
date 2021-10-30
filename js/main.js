@@ -113,37 +113,37 @@ const app = Vue.createApp({
             skills: [
                 {
                     description: 'Linguagens',
-                    list: ['C', 'C++', 'C#', 'PHP', 'Java', 'HTML', 'CSS', 'JS', 'Python', 'SQL', 'Delphi',],
+                    list: [{name: 'C', main: false}, {name: 'C++', main: false}, {name: 'C#', main: false}, {name: 'PHP', main: true}, {name: 'Java', main: false}, {name: 'HTML', main: true}, {name: 'CSS', main: true}, {name: 'JS', main: true}, {name: 'Python', main: false}, {name: 'SQL', main: false}, {name: 'Delphi', main: false},],
                 },
 
                 {
                     description: 'Bancos de Dados',
-                    list: ['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB', 'Firebird',],
+                    list: [{name: 'PostgreSQL', main: true}, {name: 'MySQL', main: false}, {name: 'SQLite', main: false}, {name: 'MongoDB', main: false}, {name: 'Firebird', main: false},],
                 },
 
                 {
                     description: 'Sistemas Operacionais',
-                    list: ['Windows', 'Linux',],
+                    list: [{name: 'Windows', main: false}, {name: 'Linux', main: true},],
                 },
 
                 {
                     description: 'Ferramentas',
-                    list: ['Git', 'GitHub', 'GitLab', 'Jira', 'VS Code',],
+                    list: [{name: 'Git', main: true}, {name: 'GitHub', main: true}, {name: 'GitLab', main: false}, {name: 'Jira', main: false}, {name: 'VS Code', main: true},],
                 },
 
                 {
                     description: 'Frameworks',
-                    list: ['React', 'Vue.js', 'Laravel',]
+                    list: [{name: 'React', main: false}, {name: 'Vue.js', main: false}, {name: 'Laravel', main: false},]
                 },
 
                 {
                     description: 'Tecnologias',
-                    list: ['Node.js', 'WebSocket', 'Fetch API', 'CSS Grid', 'CSS Flexbox',],
+                    list: [{name: 'Node.js', main: true}, {name: 'WebSocket', main: false}, {name: 'Fetch API', main: false}, {name: 'CSS Grid', main: false}, {name: 'CSS Flexbox', main: false},],
                 },
 
                 {
                     description: 'Desenvolvimento',
-                    list: ['TDD', 'CI', 'CD', 'MVC', 'SPA', 'Docker',],
+                    list: [{name: 'TDD', main: false}, {name: 'CI', main: false}, {name: 'CD', main: false}, {name: 'MVC', main: true}, {name: 'SPA', main: false}, {name: 'Docker', main: false},],
                 },
             ],
             languages: [
@@ -251,7 +251,7 @@ const app = Vue.createApp({
 
     methods: {
         techs() {
-            return this.dev.skills.reduce((a, s) => a.concat(s.list), []);
+            return this.dev.skills.reduce((a, s) => a.concat(s.list.map(v => v.name)), []);
         },
 
         language_level(i) {

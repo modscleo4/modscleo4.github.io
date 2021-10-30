@@ -227,7 +227,7 @@
                             <div class="skill-kind" v-for="skill_kind in dev.skills">
                                 <p class="skill-kind-description">{{ skill_kind.description }}</p>
                                 <div class="skills">
-                                    <div v-for="skill in skill_kind.list" class="skill">{{ skill }}</div>
+                                    <div v-for="skill in skill_kind.list" class="skill" :class="{'skill-main': skill.main}">{{ skill.name }}</div>
                                 </div>
                             </div>
                         </div>
