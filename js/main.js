@@ -65,13 +65,9 @@ const app = Vue.createApp({
             age: 18,
             contact: {
                 email: 'modscleo4@outlook.com',
-                phone: '5514991513719',
                 github: 'modscleo4',
                 gitlab: 'modscleo4',
                 linkedin: 'Modscleo4',
-                facebook: 'Modscleo4',
-                twitter: 'modscleo4',
-                reddit: 'modscleo4',
                 stackoverflow: '147419/modscleo4',
             },
             brief: 'Bem-vindo ao meu portfólio. Sou um entusiasta por tecnologia desde os 9 anos de idade. Aprendi programação por curiosidade aos 12 anos, sendo minha primeira linguagem o Visual Basic .NET. Desde então decidi seguir a carreira de Computação e continuei aprendendo novas linguagens, como C, Java, PHP, HTML + CSS + JS.',

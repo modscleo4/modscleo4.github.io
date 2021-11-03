@@ -123,24 +123,6 @@
                                 </a>
                             </li>
                             <li class="link">
-                                <a :href="`https://www.facebook.com/${dev.contact.facebook}`" target="_blank"><i
-                                       class="fa fa-facebook"></i>
-                                    <span class="description">Facebook</span>
-                                </a>
-                            </li>
-                            <li class="link">
-                                <a :href="`https://twitter.com/${dev.contact.twitter}`" target="_blank"><i
-                                       class="fa fa-twitter"></i>
-                                    <span class="description">Twitter</span>
-                                </a>
-                            </li>
-                            <li class="link">
-                                <a :href="`https://www.reddit.com/user/${dev.contact.reddit}`" target="_blank"><i
-                                       class="fa fa-reddit-alien"></i>
-                                    <span class="description">Reddit</span>
-                                </a>
-                            </li>
-                            <li class="link">
                                 <a :href="`https://pt.stackoverflow.com/users/${dev.contact.stackoverflow}`"
                                    target="_blank"><i class="fa fa-stack-overflow"></i>
                                     <span class="description">Stack Overflow</span>
@@ -288,16 +270,11 @@
                                     <ul>
                                         <li><a :href="`mailto:${dev.contact.email}`"><i class="fa fa-envelope"></i>
                                                 {{ dev.contact.email }}</a></li>
-                                        <li><a :href="`tel:${dev.contact.phone}`"><i class="fa fa-phone"></i>
-                                                {{ formatPhone(dev.contact.phone) }}</a></li>
                                     </ul>
                                 </div>
 
                                 <div id="links-2">
                                     <ul>
-                                        <li><a :href="`https://www.facebook.com/${dev.contact.facebook}`"
-                                               target="_blank">Facebook</a>
-                                        </li>
                                         <li><a :href="`https://www.linkedin.com/in/${dev.contact.linkedin}`"
                                                target="_blank">LinkedIn</a></li>
                                         <li><a :href="`https://github.com/${dev.contact.github}`"
