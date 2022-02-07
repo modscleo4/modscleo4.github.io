@@ -231,6 +231,14 @@ const app = Vue.createApp({
                     description: 'A Simple Password Generator',
                     techs: ['HTML', 'CSS', 'JS', 'Web Crypto', 'Vue.js'],
                 },
+
+                {
+                    url: 'https://modscleo4.dev.br/wpmtest',
+                    image_url: 'res/project-10.png',
+                    name: 'WPM Test',
+                    description: 'WPM (Words Per Minute) Test',
+                    techs: ['HTML', 'CSS', 'JS', 'Vue.js'],
+                },
             ],
         },
     }),
