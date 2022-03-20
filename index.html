@@ -235,7 +235,7 @@
                     <p>Nenhum item encontrado.</p>
                 </div>
 
-                <div class="portfolio-items" v-else>
+                <div class="portfolio-items" :class="{expanded: projectsExpanded}" v-else>
                     <a v-for="portfolio_item in portfolio" :href="portfolio_item.url" target="_blank">
                         <div class="portfolio-item">
                             <aside class="project-img">
@@ -254,6 +254,8 @@
                             </div>
                         </div>
                     </a>
+
+                    <button v-if="!this.projectsExpanded" class="expand" @click="this.projectsExpanded = true;">+</button>
                 </div>
             </div>
         </section>

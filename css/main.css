@@ -546,16 +546,46 @@ section h1 {
 }
 
 #portfolio .portfolio-items {
+    --portfolio-item-height: 280px;
     display: grid;
     grid-template-columns: auto;
     grid-row-gap: 32px;
-    overflow-x: hidden;
+    overflow: hidden;
+    max-height: calc(3 * var(--portfolio-item-height) + 2 * 32px);
+    transition: max-height 100ms ease-in-out;
+    position: relative;
+}
+
+#portfolio .portfolio-items.expanded {
+    max-height: 10000px;
+}
+
+#portfolio .portfolio-items .expand {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0;
+    background: var(--btn-background-color);
+    color: var(--btn-text-color);
+    margin: 0;
+    border-radius: 50% 50%;
+    font-size: 20pt;
+    font-weight: bold;
+    /* font-family: monospace; */
+    height: 48px;
+    width: 48px;
+}
+
+#portfolio .portfolio-items .expand:hover {
+    background: var(--btn-background-color-hover);
 }
 
 #portfolio a {
     text-decoration: none;
     transition: all 200ms;
     background: var(--odd);
+    height: var(--portfolio-item-height);
 }
 
 #portfolio a:hover {

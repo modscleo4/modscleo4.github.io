@@ -58,6 +58,7 @@ window.addEventListener('scroll', () => {
 const app = Vue.createApp({
     data: () => ({
         sidebarOpened: false,
+        projectsExpanded: false,
         tech_filter: [],
         dev: {
             name: 'Dhiego Cassiano Fogaça Barbosa',
@@ -124,7 +125,7 @@ const app = Vue.createApp({
 
                 {
                     description: 'Ferramentas',
-                    list: [{name: 'Git', main: true}, {name: 'GitHub', main: true}, {name: 'GitLab', main: false}, {name: 'Jira', main: false}, {name: 'VS Code', main: true},],
+                    list: [{name: 'Git', main: true}, {name: 'GitHub', main: true}, {name: 'GitLab', main: false}, {name: 'Jira', main: false}, {name: 'VS Code', main: true}, {name: 'Docker', main: false},],
                 },
 
                 {
@@ -139,7 +140,7 @@ const app = Vue.createApp({
 
                 {
                     description: 'Desenvolvimento',
-                    list: [{name: 'TDD', main: false}, {name: 'CI', main: false}, {name: 'CD', main: false}, {name: 'MVC', main: true}, {name: 'SPA', main: false}, {name: 'Docker', main: false},],
+                    list: [{name: 'TDD', main: false}, {name: 'CI', main: false}, {name: 'CD', main: false}, {name: 'MVC', main: true}, {name: 'SPA', main: false},],
                 },
             ],
             languages: [
@@ -180,8 +181,40 @@ const app = Vue.createApp({
                     url: 'https://github.com/blitzcti/sgecti',
                     image_url: 'res/project-3.png',
                     name: 'SGE',
-                    description: 'O SGE é um Trabalho de Conclusão de Curso apresentado ao CTI - Colégio Técnico Industrial "Prof. Isaac Portal Roldán" - Unesp - Universidade Estadual Paulista "Júlio de Mesquita Filho" - Campus de Bauru. Desenvolvido pela equipe Blitz, o projeto tem como finalidade gerenciar os estágios do CTI.',
+                    description: 'O SGE é um Trabalho de Conclusão de Curso apresentado ao CTI - Colégio Técnico Industrial "Prof. Isaac Portal Roldán". Desenvolvido pela equipe Blitz, o projeto tem como finalidade gerenciar os estágios do CTI.',
                     techs: ['PHP', 'HTML', 'CSS', 'JS', 'Laravel', 'PostgreSQL', 'SQL', 'MVC',],
+                },
+
+                {
+                    url: 'https://chess.modscleo4.dev.br',
+                    image_url: 'res/project-8.png',
+                    name: 'Chess.js',
+                    description: 'Chess.js (with online)',
+                    techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
+                },
+
+                {
+                    url: 'https://modscleo4.dev.br/minesweeper',
+                    image_url: 'res/project-7.png',
+                    name: 'Minesweeper.js',
+                    description: 'Minesweeper.js (with dark theme!)',
+                    techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
+                },
+
+                {
+                    url: 'https://modscleo4.dev.br/passwordgen',
+                    image_url: 'res/project-9.png',
+                    name: 'Password Generator',
+                    description: 'A Simple Password Generator',
+                    techs: ['HTML', 'CSS', 'JS', 'Web Crypto', 'Vue.js'],
+                },
+
+                {
+                    url: 'https://modscleo4.dev.br/wpmtest',
+                    image_url: 'res/project-10.png',
+                    name: 'WPM Test',
+                    description: 'WPM (Words Per Minute) Test',
+                    techs: ['HTML', 'CSS', 'JS', 'Vue.js'],
                 },
 
                 {
@@ -206,38 +239,6 @@ const app = Vue.createApp({
                     name: 'Truth Table generator',
                     description: 'Truth Table generator written in Vue',
                     techs: ['HTML', 'CSS', 'JS', 'CSS Flexbox', 'Vue.js'],
-                },
-
-                {
-                    url: 'https://modscleo4.dev.br/minesweeper',
-                    image_url: 'res/project-7.png',
-                    name: 'Minesweeper.js',
-                    description: 'Minesweeper.js (with dark theme!)',
-                    techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
-                },
-
-                {
-                    url: 'https://chess.modscleo4.dev.br',
-                    image_url: 'res/project-8.png',
-                    name: 'Chess.js',
-                    description: 'Chess.js (with online)',
-                    techs: ['HTML', 'CSS', 'JS', 'Local Storage', 'Vue.js'],
-                },
-
-                {
-                    url: 'https://modscleo4.dev.br/passwordgen',
-                    image_url: 'res/project-9.png',
-                    name: 'Password Generator',
-                    description: 'A Simple Password Generator',
-                    techs: ['HTML', 'CSS', 'JS', 'Web Crypto', 'Vue.js'],
-                },
-
-                {
-                    url: 'https://modscleo4.dev.br/wpmtest',
-                    image_url: 'res/project-10.png',
-                    name: 'WPM Test',
-                    description: 'WPM (Words Per Minute) Test',
-                    techs: ['HTML', 'CSS', 'JS', 'Vue.js'],
                 },
             ],
         },
