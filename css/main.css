@@ -212,6 +212,12 @@ header.alt-bg {
     color: var(--text-color-alt);
 }
 
+header .links-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+
 header .links,
 header .links .sublinks,
 header .sidebar-button {

@@ -234,6 +234,14 @@ const app = Vue.createApp({
                 },
 
                 {
+                    url: 'https://blogs.modscleo4.dev.br',
+                    image_url: 'res/project-11.png',
+                    name: 'Blogs',
+                    description: 'A Simple Markdown Blog Written in Vue 3',
+                    techs: ['HTML', 'CSS', 'JS', 'CSS Flexbox', 'Vue.js'],
+                },
+
+                {
                     url: 'https://modscleo4.dev.br/truthtable',
                     image_url: 'res/project-6.png',
                     name: 'Truth Table generator',
