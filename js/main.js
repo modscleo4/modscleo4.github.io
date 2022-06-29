@@ -65,7 +65,7 @@ const app = Vue.createApp({
             title: 'Desenvolvedor full stack',
             age: 18,
             contact: {
-                email: 'modscleo4@outlook.com',
+                email: 'modscleo4@modscleo4.dev.br',
                 github: 'modscleo4',
                 gitlab: 'modscleo4',
                 linkedin: 'Modscleo4',

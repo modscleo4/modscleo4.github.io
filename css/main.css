@@ -221,7 +221,6 @@ header .links-container {
 header .links,
 header .links .sublinks,
 header .sidebar-button {
-    width: max-content;
     display: inline-flex;
     padding: 0;
     list-style: none;
