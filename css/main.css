@@ -247,7 +247,7 @@ header .links li,
 header .links .sublinks li {
     display: inline-flex;
     justify-content: flex-start;
-    width: min-content;
+    /* width: min-content; */
     /* gap: 12px; */
 }
 
