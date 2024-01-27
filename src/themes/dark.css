@@ -1,0 +1,36 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: rgba(28, 28, 28, 1);
+    --card-color: rgb(19, 19, 19);
+    --body-color: rgb(83, 30, 180);
+    --body-color-alt: rgb(94, 75, 196);
+
+    --text-color: rgba(220, 220, 220, 1);
+    --text-color-hover: rgb(178, 169, 214);
+    --text-color-active: rgb(150, 124, 196);
+    --text-color-alt: rgba(220, 220, 220, 1);
+    --text-color-hover-alt: rgb(149, 136, 202);
+    --text-color-active-alt: rgb(146, 124, 191);
+    --link-color: rgb(236, 236, 236);
+    --link-color-hover: rgb(153, 138, 208);
+    --link-color-alt: rgb(236, 236, 236);
+    --link-color-hover-alt: rgb(153, 138, 208);
+
+    --input-background-color: rgb(62, 62, 62);
+    --input-border-color: rgb(50, 50, 50);
+    --input-border-color-hover: rgb(153, 138, 208);
+    --input-border-color-focus: rgb(132, 112, 206);
+
+    --btn-text-color: rgb(231, 231, 231);
+    --btn-background-color: rgb(65, 48, 158);
+    --btn-background-color-hover: rgb(100, 30, 180);
+
+    --odd: rgb(28, 28, 28);
+    --even: rgb(44, 44, 44);
+
+    --scrollbar-thumb: rgb(112, 112, 112);
+    --scrollbar-thumb-hover: rgb(138, 138, 138);
+    --scrollbar-thumb-active: rgb(165, 165, 165);
+    --scrollbar-track: rgb(50, 50, 50);
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "modscleo4.github.ioo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tabler/icons-vue": "^2.46.0",
+    "@tsparticles/vue3": "^3.0.0",
+    "aos": "^2.3.4",
+    "tsparticles": "^3.1.0",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.4",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vue-tsc": "^1.8.27"
+  }
+}
